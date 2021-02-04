@@ -1,14 +1,21 @@
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'border_painter.dart';
-import '../glass_kit.dart';
+import 'constants.dart';
 
 class GlassContainer extends StatelessWidget {
   GlassContainer({
     Key? key,
     required this.height,
     required this.width,
+    this.alignment,
+    this.transform,
+    this.transformAlignment,
+    this.padding,
+    this.margin,
     this.color,
     this.gradient,
     BorderRadius? borderRadius,
@@ -29,11 +36,8 @@ class GlassContainer extends StatelessWidget {
         this.elevation = elevation ?? kElevation,
         this.shadowColor = shadowColor ?? kShadowColor,
         this.shape = shape,
-        this.borderRadius = shape == BoxShape.rectangle
-            ? (borderRadius ?? kBorderRadius)
-            : null,
-        assert(color != null || gradient != null,
-            'Both color and gradient cannot be null\n'),
+        this.borderRadius = shape == BoxShape.rectangle ? (borderRadius ?? kBorderRadius) : null,
+        assert(color != null || gradient != null, 'Both color and gradient cannot be null\n'),
         assert(borderColor != null || borderGradient != null,
             'Both borderColor and borderGradient cannot be null\n'),
         assert(shape != BoxShape.circle || borderRadius == null,
@@ -55,6 +59,11 @@ class GlassContainer extends StatelessWidget {
   final BoxShape shape;
   final double elevation;
   final Color shadowColor;
+  final Matrix4? transform;
+  final AlignmentGeometry? alignment;
+  final AlignmentGeometry? transformAlignment;
+  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
 
   Widget _frostedContainer() {
     if (!isFrostedGlass || frostedOpacity == 0.0) {
@@ -63,7 +72,7 @@ class GlassContainer extends StatelessWidget {
       return _FrostedWidget(
         frostedOpacity: frostedOpacity,
         height: height,
-        width: width,
+        width: _isCircle ? height : width,
       );
     }
   }
@@ -97,9 +106,11 @@ class GlassContainer extends StatelessWidget {
     Widget? current = child;
 
     current = Container(
-      height: height,
-      width: width,
+      // height: height,
+      // width: _isCircle ? height : width,
+      padding: padding,
       child: current,
+      alignment: alignment,
       decoration: BoxDecoration(
         color: color,
         gradient: gradient,
@@ -136,20 +147,7 @@ class GlassContainer extends StatelessWidget {
 
     current = Stack(
       alignment: Alignment.center,
-      children: [
-        _backdropFilterContainer(),
-        _frostedContainer(),
-        current,
-      ],
-    );
-
-    current = PhysicalModel(
-      color: Colors.transparent,
-      borderRadius: borderRadius,
-      elevation: elevation,
-      shadowColor: shadowColor,
-      shape: shape,
-      child: current,
+      children: [_backdropFilterContainer(), _frostedContainer(), current],
     );
 
     if (_isCircle) {
@@ -160,11 +158,50 @@ class GlassContainer extends StatelessWidget {
       current = ClipRRect(borderRadius: borderRadius, child: current);
     }
 
-    current = Container(
+    current = PhysicalModel(
+      color: Colors.transparent,
+      borderRadius: borderRadius,
+      elevation: elevation,
+      shadowColor: shadowColor,
+      shape: shape,
       child: current,
     );
 
+    current = Container(
+      height: height,
+      width: _isCircle ? height : width,
+      child: current,
+      transform: transform,
+      margin: margin,
+      transformAlignment: transformAlignment,
+    );
+
     return current;
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<double>('borderWidth', borderWidth, defaultValue: kBorderWidth, ifNull: 'no border width'));
+    properties.add(DiagnosticsProperty<AlignmentGeometry>('alignment', alignment, showName: false, defaultValue: null));
+    if (gradient != null)
+      properties.add(DiagnosticsProperty<Gradient>('bg', gradient));
+    else
+      properties.add(DiagnosticsProperty<Color>('bg', color));
+    properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding, defaultValue: null));
+    properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('margin', margin, defaultValue: null));
+    properties.add(ObjectFlagProperty<Matrix4>.has('transform', transform));
+    if (borderGradient != null)
+      properties.add(DiagnosticsProperty<Gradient>('borderGradient', borderGradient));
+    else
+      properties.add(DiagnosticsProperty<Color>('borderColor', borderColor));
+    properties.add(DiagnosticsProperty<BorderRadius>('borderRadius', borderRadius, ifNull: "BoxShape is Circle"));
+    properties.add(DiagnosticsProperty<bool>('isfrostedGlass', isFrostedGlass, defaultValue: kIsFrosted, ifNull: '<indeterminate>'));
+    properties.add(PercentProperty('frostedOpacity', frostedOpacity, showName: true, ifNull: '<indeterminate>'));
+    properties.add(DiagnosticsProperty<double>('blur', blur, defaultValue: kBlur));
+    properties.add(EnumProperty<BoxShape>('shape', shape, defaultValue: BoxShape.rectangle, level: DiagnosticLevel.info));
+    properties.add(DiagnosticsProperty<Color>('shadowColor', shadowColor, defaultValue: kShadowColor));
+    properties.add(DiagnosticsProperty<double>('elevation', elevation, defaultValue: kElevation));
   }
 }
 
@@ -190,6 +227,7 @@ class _FrostedWidget extends StatelessWidget {
           height: height.toInt(),
           width: width.toInt(),
         ),
+        excludeFromSemantics: true,
         fit: BoxFit.cover,
         color: Colors.white,
         colorBlendMode: BlendMode.difference,
