@@ -30,9 +30,9 @@ class GlassContainer extends StatelessWidget {
   ///
   /// The [shape] argument must not be `null`.
   GlassContainer({
-    Key key,
-    @required this.height,
-    @required this.width,
+    Key? key,
+    required this.height,
+    required this.width,
     this.alignment,
     this.transform,
     this.transformAlignment,
@@ -40,15 +40,15 @@ class GlassContainer extends StatelessWidget {
     this.margin,
     this.color,
     this.gradient,
-    BorderRadius borderRadius,
-    double borderWidth,
+    BorderRadius? borderRadius,
+    double? borderWidth,
     this.borderColor,
     this.borderGradient,
-    double blur,
-    bool isFrostedGlass,
-    double frostedOpacity,
-    double elevation,
-    Color shadowColor,
+    double? blur,
+    bool? isFrostedGlass,
+    double? frostedOpacity,
+    double? elevation,
+    Color? shadowColor,
     BoxShape shape = BoxShape.rectangle,
     this.child,
   })  : borderWidth = borderWidth ?? kBorderWidth,
@@ -68,7 +68,6 @@ class GlassContainer extends StatelessWidget {
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]'),
         super(key: key);
-
 
   /// The [child] contained by the GlassContainer.
   final Widget? child;
@@ -207,7 +206,7 @@ class GlassContainer extends StatelessWidget {
     if (_colorOnlyBorder) {
       assert(borderColor != null);
       return Border.all(
-        color: borderColor,
+        color: borderColor!,
         width: borderWidth,
       );
     } else {
@@ -220,7 +219,7 @@ class GlassContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget current = child;
+    Widget? current = child;
 
     // Enclose the child within a container with padding, alignment and decoration
     current = Container(
@@ -246,7 +245,7 @@ class GlassContainer extends StatelessWidget {
         current = CustomPaint(
           painter: CircleBorderPainter(
             radius: height / 2,
-            gradient: borderGradient,
+            gradient: borderGradient!,
             strokeWidth: borderWidth,
           ),
           child: current,
@@ -255,9 +254,9 @@ class GlassContainer extends StatelessWidget {
         assert(borderRadius != null);
         current = CustomPaint(
           painter: RectBorderPainter(
-            radius: borderRadius.topLeft,
+            radius: borderRadius!.topLeft,
             strokeWidth: borderWidth,
-            gradient: borderGradient,
+            gradient: borderGradient!,
           ),
           child: current,
         );
@@ -346,7 +345,7 @@ class GlassContainer extends StatelessWidget {
 class _FrostedWidget extends StatelessWidget {
   /// Creates a Forsted Layer Widget
   _FrostedWidget({
-    Key key,
+    Key? key,
     required this.frostedOpacity,
     required this.height,
     required this.width,

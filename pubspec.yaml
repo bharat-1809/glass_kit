@@ -5,7 +5,7 @@ author: Bharat Sharma (@bharat-1809)
 homepage: https://github.com/bharat-1809/glass_kit
 
 environment:
-  sdk: ">=2.17.0-0 <3.0.0"
+  sdk: ">=2.12.0-0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
