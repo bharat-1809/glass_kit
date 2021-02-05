@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        channel: [stable, beta, dev]
+        channel: [beta, dev] # TODO: Add the stable channel when nullsafety is available
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,12 +32,13 @@ jobs:
         uses: subosito/flutter-action@v1
         with:
           channel: ${{ matrix.channel }}
-
+      
+      # TODO: Add the following check too: flutter analyze --no-pub
+      # Due to some problem with the linter its not working correctly. See issue 
       - name: Run Tests
         run: |
           flutter pub get
           flutter format --dry-run --set-exit-if-changed .
-          flutter analyze --no-pub
           flutter test --no-pub --coverage
       - name: Upload coverage to Codecov
         if: ${{ matrix.channel == 'stable' }}
