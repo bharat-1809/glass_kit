@@ -41,7 +41,7 @@ jobs:
           flutter format --dry-run --set-exit-if-changed .
           flutter test --no-pub --coverage
       - name: Upload coverage to Codecov
-        if: ${{ matrix.channel == 'stable' }}
+        if: ${{ matrix.channel == 'beta' }}
         uses: codecov/codecov-action@v1
         with:
           file: coverage/lcov.info
