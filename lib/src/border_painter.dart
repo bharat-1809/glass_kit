@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class RectBorderPainter extends CustomPainter {
   RectBorderPainter({
-    required this.radius,
-    required this.strokeWidth,
-    required this.gradient,
-  }) : this._paint = Paint();
+    @required this.radius,
+    @required this.strokeWidth,
+    @required this.gradient,
+  }) : _paint = Paint();
 
   final Paint _paint;
   final Radius radius;
@@ -37,10 +37,10 @@ class RectBorderPainter extends CustomPainter {
 
 class CircleBorderPainter extends CustomPainter {
   CircleBorderPainter({
-    required this.radius,
-    required this.gradient,
-    required this.strokeWidth,
-  }) : this._paint = Paint();
+    @required this.radius,
+    @required this.gradient,
+    @required this.strokeWidth,
+  }) : _paint = Paint();
 
   final Paint _paint;
   final double radius;

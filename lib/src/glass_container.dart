@@ -8,9 +8,9 @@ import 'constants.dart';
 
 class GlassContainer extends StatelessWidget {
   GlassContainer({
-    Key? key,
-    required this.height,
-    required this.width,
+    Key key,
+    @required this.height,
+    @required this.width,
     this.alignment,
     this.transform,
     this.transformAlignment,
@@ -18,25 +18,25 @@ class GlassContainer extends StatelessWidget {
     this.margin,
     this.color,
     this.gradient,
-    BorderRadius? borderRadius,
-    double? borderWidth,
+    BorderRadius borderRadius,
+    double borderWidth,
     this.borderColor,
     this.borderGradient,
-    double? blur,
-    bool? isFrostedGlass,
-    double? frostedOpacity,
-    double? elevation,
-    Color? shadowColor,
+    double blur,
+    bool isFrostedGlass,
+    double frostedOpacity,
+    double elevation,
+    Color shadowColor,
     BoxShape shape = BoxShape.rectangle,
     this.child,
-  })  : this.borderWidth = borderWidth ?? kBorderWidth,
-        this.blur = blur ?? kBlur,
-        this.isFrostedGlass = isFrostedGlass ?? kIsFrosted,
-        this.frostedOpacity = frostedOpacity ?? kFrostedOpacity,
-        this.elevation = elevation ?? kElevation,
-        this.shadowColor = shadowColor ?? kShadowColor,
-        this.shape = shape,
-        this.borderRadius = shape == BoxShape.rectangle ? (borderRadius ?? kBorderRadius) : null,
+  })  : borderWidth = borderWidth ?? kBorderWidth,
+        blur = blur ?? kBlur,
+        isFrostedGlass = isFrostedGlass ?? kIsFrosted,
+        frostedOpacity = frostedOpacity ?? kFrostedOpacity,
+      elevation = elevation ?? kElevation,
+        shadowColor = shadowColor ?? kShadowColor,
+        shape = shape,
+        borderRadius = shape == BoxShape.rectangle ? (borderRadius ?? kBorderRadius) : null,
         assert(color != null || gradient != null, 'Both color and gradient cannot be null\n'),
         assert(borderColor != null || borderGradient != null,
             'Both borderColor and borderGradient cannot be null\n'),
@@ -44,26 +44,26 @@ class GlassContainer extends StatelessWidget {
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]'),
         super(key: key);
 
-  final Widget? child;
+  final Widget child;
   final double height;
   final double width;
-  final Color? color;
-  final Gradient? gradient;
-  final BorderRadius? borderRadius;
+  final Color color;
+  final Gradient gradient;
+  final BorderRadius borderRadius;
   final double borderWidth;
-  final Gradient? borderGradient;
-  final Color? borderColor;
+  final Gradient borderGradient;
+  final Color borderColor;
   final double blur;
   final bool isFrostedGlass;
   final double frostedOpacity;
   final BoxShape shape;
   final double elevation;
   final Color shadowColor;
-  final Matrix4? transform;
-  final AlignmentGeometry? alignment;
-  final AlignmentGeometry? transformAlignment;
-  final EdgeInsetsGeometry? padding;
-  final EdgeInsetsGeometry? margin;
+  final Matrix4 transform;
+  final AlignmentGeometry alignment;
+  final AlignmentGeometry transformAlignment;
+  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry margin;
 
   Widget _frostedContainer() {
     if (!isFrostedGlass || frostedOpacity == 0.0) {
@@ -86,11 +86,11 @@ class GlassContainer extends StatelessWidget {
     );
   }
 
-  Border? _getBorder() {
+  Border _getBorder() {
     if (_colorOnlyBorder) {
       assert(borderColor != null);
       return Border.all(
-        color: borderColor!,
+        color: borderColor,
         width: borderWidth,
       );
     } else {
@@ -103,7 +103,7 @@ class GlassContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget? current = child;
+    Widget current = child;
 
     current = Container(
       // height: height,
@@ -127,7 +127,7 @@ class GlassContainer extends StatelessWidget {
         current = CustomPaint(
           painter: CircleBorderPainter(
             radius: height / 2,
-            gradient: borderGradient!,
+            gradient: borderGradient,
             strokeWidth: borderWidth,
           ),
           child: current,
@@ -136,9 +136,9 @@ class GlassContainer extends StatelessWidget {
         assert(borderRadius != null);
         current = CustomPaint(
           painter: RectBorderPainter(
-            radius: borderRadius!.topLeft,
+            radius: borderRadius.topLeft,
             strokeWidth: borderWidth,
-            gradient: borderGradient!,
+            gradient: borderGradient,
           ),
           child: current,
         );
@@ -185,17 +185,18 @@ class GlassContainer extends StatelessWidget {
     properties.add(DiagnosticsProperty<double>('borderWidth', borderWidth, defaultValue: kBorderWidth, ifNull: 'no border width'));
     properties.add(DiagnosticsProperty<AlignmentGeometry>('alignment', alignment, showName: false, defaultValue: null));
     if (gradient != null)
-      properties.add(DiagnosticsProperty<Gradient>('bg', gradient));
+      {properties.add(DiagnosticsProperty<Gradient>('bg', gradient));}
     else
-      properties.add(DiagnosticsProperty<Color>('bg', color));
+      {properties.add(DiagnosticsProperty<Color>('bg', color));}
     properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding, defaultValue: null));
     properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('margin', margin, defaultValue: null));
     properties.add(ObjectFlagProperty<Matrix4>.has('transform', transform));
-    if (borderGradient != null)
+    if (borderGradient != null) {
       properties.add(DiagnosticsProperty<Gradient>('borderGradient', borderGradient));
-    else
+    } else {
       properties.add(DiagnosticsProperty<Color>('borderColor', borderColor));
-    properties.add(DiagnosticsProperty<BorderRadius>('borderRadius', borderRadius, ifNull: "BoxShape is Circle"));
+    }
+    properties.add(DiagnosticsProperty<BorderRadius>('borderRadius', borderRadius, ifNull: 'BoxShape is Circle'));
     properties.add(DiagnosticsProperty<bool>('isfrostedGlass', isFrostedGlass, defaultValue: kIsFrosted, ifNull: '<indeterminate>'));
     properties.add(PercentProperty('frostedOpacity', frostedOpacity, showName: true, ifNull: '<indeterminate>'));
     properties.add(DiagnosticsProperty<double>('blur', blur, defaultValue: kBlur));
@@ -207,10 +208,10 @@ class GlassContainer extends StatelessWidget {
 
 class _FrostedWidget extends StatelessWidget {
   _FrostedWidget({
-    Key? key,
-    required this.frostedOpacity,
-    required this.height,
-    required this.width,
+    Key key,
+    @required this.frostedOpacity,
+    @required this.height,
+    @required this.width,
   }) : super(key: key);
 
   final double frostedOpacity;
@@ -223,7 +224,7 @@ class _FrostedWidget extends StatelessWidget {
       opacity: frostedOpacity,
       child: Image(
         image: ResizeImage(
-          AssetImage(kNoiseImage, package: "glass_kit"),
+          AssetImage(kNoiseImage, package: 'glass_kit'),
           height: height.toInt(),
           width: width.toInt(),
         ),

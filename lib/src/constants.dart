@@ -9,4 +9,4 @@ final bool kIsFrosted = false;
 final double kFrostedOpacity = 0.10;
 final double kElevation = 1.0;
 final Color kShadowColor = const Color(0xff000000).withOpacity(0.20);
-final String kNoiseImage = "assets/noise.png";
+final String kNoiseImage = 'assets/noise.png';
