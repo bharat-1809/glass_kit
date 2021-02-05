@@ -141,12 +141,12 @@ packages:
     source: sdk
     version: "0.0.0"
   glass_kit:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.1-nullsafety.0"
   glob:
     dependency: transitive
     description:
