@@ -1,3 +1,18 @@
+# Additions to the generated gitignore...
+# Skip the pubspec.lock file because this is a library not an application
+**/pubspec.lock
+# The code coverage folder is like a build result
+coverage/
+
+# Code
+.idea
+.vscode
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
 # Miscellaneous
 *.class
 *.log
@@ -29,6 +44,7 @@
 .pub-cache/
 .pub/
 build/
+lib/generated_plugin_registrant.dart
 
 # Android related
 **/android/**/gradle-wrapper.jar

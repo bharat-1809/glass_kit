@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+/// The [CustomPainter] to paint the borders of RRect containers
+///
+/// Used by GlassContainer to paint the gradient borders
 class RectBorderPainter extends CustomPainter {
   RectBorderPainter({
-    @required this.radius,
-    @required this.strokeWidth,
-    @required this.gradient,
+    required this.radius,
+    required this.strokeWidth,
+    required this.gradient,
   }) : _paint = Paint();
 
   final Paint _paint;
@@ -14,7 +17,7 @@ class RectBorderPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // create outer rectangle equals size
+    // create outer rectangle equal to size
     Rect outerRect = Offset.zero & size;
     RRect outerRRect = RRect.fromRectAndRadius(outerRect, radius);
 
@@ -35,11 +38,14 @@ class RectBorderPainter extends CustomPainter {
   bool shouldRepaint(CustomPainter oldDelegate) => oldDelegate != this;
 }
 
+/// The [CustomPainter] to paint the borders of circle shaped containers
+///
+/// Used by GlassContainer to paint the gradient borders
 class CircleBorderPainter extends CustomPainter {
   CircleBorderPainter({
-    @required this.radius,
-    @required this.gradient,
-    @required this.strokeWidth,
+    required this.radius,
+    required this.gradient,
+    required this.strokeWidth,
   }) : _paint = Paint();
 
   final Paint _paint;
@@ -49,8 +55,13 @@ class CircleBorderPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    // create an outer box enclosing the circel
     Rect rect = Offset.zero & size;
+
+    // create an outer circle enclosing box
     Rect outerCircle = Rect.fromCircle(center: rect.center, radius: radius);
+
+    // create an inner circle enclosing box
     Rect innerCircle = outerCircle.deflate(strokeWidth);
 
     // apply gradient shader
