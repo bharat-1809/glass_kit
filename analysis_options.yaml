@@ -1,5 +1,6 @@
-include: package:pedantic/analysis_options.yaml
+include: package:pedantic/analysis_options.1.9.0.yaml
 
 linter:
   rules:
     omit_local_variable_types: false
+    curly_braces_in_flow_control_structures: false

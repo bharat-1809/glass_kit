@@ -17,6 +17,7 @@ import 'constants.dart';
 ///
 /// [BackdropFilter], frosted layer and container are stacked and clipped using
 /// [ClipOval] or [ClipRRect] to implement the Glass Effect
+
 class GlassContainer extends StatelessWidget {
   /// Creates a widget by combining common painting, sizing, and positioning widgets
   /// to implement Glass Morphism.
@@ -25,8 +26,8 @@ class GlassContainer extends StatelessWidget {
   /// * Both [color] and [gradient] cannot be `null`. Same goes for [borderColor] and
   ///   [borderGradient]. Preference is given to [gradient] during painting.
   /// * The [borderRadius] argument must be `null` if the [shape] is [BoxShape.Circle]
-  /// * By default [borderWidth] is 1.0, [isFrosted] is set to `false` and [blur] value
-  ///   is set to 10.0.
+  /// * By default [borderWidth] is `1.0`, [isFrosted] is set to `false` and [blur] value
+  ///   is set to `10.0`.
   ///
   /// The [shape] argument must not be `null`.
   GlassContainer({
@@ -66,7 +67,7 @@ class GlassContainer extends StatelessWidget {
         assert(borderColor != null || borderGradient != null,
             'Both borderColor and borderGradient cannot be null\n'),
         assert(shape != BoxShape.circle || borderRadius == null,
-            'The [borderRadius] needs to be null if the shape is [BoxShape.circle]'),
+            'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
         super(key: key);
 
   /// The [child] contained by the GlassContainer.
@@ -145,7 +146,7 @@ class GlassContainer extends StatelessWidget {
 
   /// The color of the shadow
   ///
-  /// Defaults to `Color(0xff000000).withOpacity(0.20)`
+  /// Defaults to `Color(0x51000000)`: Black with 20% opacity
   final Color shadowColor;
 
   /// The transformation matrix to apply before painting the GlassContainer.
@@ -178,7 +179,7 @@ class GlassContainer extends StatelessWidget {
 
   /// Returns an empty [Container] or [_FrostedContainer] depending on the
   /// [isFrosted] flag and the [frostedOpacity] property
-  Widget _frostedContainer() {
+  Widget get _frostedContainer {
     if (!isFrostedGlass || frostedOpacity == 0.0) {
       return Container();
     } else {
@@ -191,7 +192,7 @@ class GlassContainer extends StatelessWidget {
   }
 
   /// Returns a [BackdropFilter] with the Gaussian Blur
-  BackdropFilter _backdropFilterContainer() {
+  BackdropFilter get _backdropFilterContainer {
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
       child: Container(
@@ -202,7 +203,7 @@ class GlassContainer extends StatelessWidget {
 
   /// If its color-only-border, then return [Border] to be used
   /// in the decoration of the container.
-  Border? _getBorder() {
+  Border? get _border {
     if (_colorOnlyBorder) {
       assert(borderColor != null);
       return Border.all(
@@ -232,7 +233,7 @@ class GlassContainer extends StatelessWidget {
         color: color,
         gradient: gradient,
         borderRadius: borderRadius,
-        border: _getBorder(),
+        border: _border,
         shape: shape,
       ),
     );
@@ -266,7 +267,7 @@ class GlassContainer extends StatelessWidget {
     // Commbine the backdropFilter, frosted layer, and container into a stack
     current = Stack(
       alignment: Alignment.center,
-      children: [_backdropFilterContainer(), _frostedContainer(), current],
+      children: [_backdropFilterContainer, _frostedContainer, current],
     );
 
     // Clip the current container depending on the shape
@@ -306,26 +307,14 @@ class GlassContainer extends StatelessWidget {
         defaultValue: kBorderWidth, ifNull: 'no border width'));
     properties.add(DiagnosticsProperty<AlignmentGeometry>(
         'alignment', alignment,
-        showName: false, defaultValue: null));
-    if (gradient != null) {
-      properties.add(DiagnosticsProperty<Gradient>('bg', gradient));
-    } else {
-      properties.add(ColorProperty('bg', color));
-    }
+        defaultValue: null, showName: false));
     properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding,
         defaultValue: null));
     properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('margin', margin,
         defaultValue: null));
     properties.add(ObjectFlagProperty<Matrix4>.has('transform', transform));
-    if (borderGradient != null) {
-      properties
-          .add(DiagnosticsProperty<Gradient>('borderGradient', borderGradient));
-    } else {
-      properties.add(DiagnosticsProperty<Color>('borderColor', borderColor));
-    }
-    properties.add(DiagnosticsProperty<BorderRadius>(
-        'borderRadius', borderRadius,
-        ifNull: 'BoxShape is Circle'));
+    properties
+        .add(DiagnosticsProperty<BorderRadius>('borderRadius', borderRadius));
     properties.add(DiagnosticsProperty<bool>('isfrostedGlass', isFrostedGlass,
         defaultValue: kIsFrosted, ifNull: '<indeterminate>'));
     properties.add(PercentProperty('frostedOpacity', frostedOpacity,
@@ -334,10 +323,21 @@ class GlassContainer extends StatelessWidget {
         .add(DiagnosticsProperty<double>('blur', blur, defaultValue: kBlur));
     properties.add(EnumProperty<BoxShape>('shape', shape,
         defaultValue: BoxShape.rectangle, level: DiagnosticLevel.info));
-    properties.add(DiagnosticsProperty<Color>('shadowColor', shadowColor,
-        defaultValue: kShadowColor));
+    properties.add(
+        ColorProperty('shadowColor', shadowColor, defaultValue: kShadowColor));
     properties.add(DiagnosticsProperty<double>('elevation', elevation,
         defaultValue: kElevation));
+
+    if (gradient != null)
+      properties.add(DiagnosticsProperty<Gradient>('bg', gradient));
+    else
+      properties.add(ColorProperty('bg', color));
+
+    if (borderGradient != null)
+      properties
+          .add(DiagnosticsProperty<Gradient>('borderGradient', borderGradient));
+    else
+      properties.add(ColorProperty('borderColor', borderColor));
   }
 }
 
@@ -372,8 +372,8 @@ class _FrostedWidget extends StatelessWidget {
         ),
         excludeFromSemantics: true,
         fit: BoxFit.cover,
-        color: Colors.white,
-        colorBlendMode: BlendMode.difference,
+        color: kFrostBlendColor,
+        colorBlendMode: kFrostBlendMode,
       ),
     );
   }
