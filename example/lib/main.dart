@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
               //   minHeight: MediaQuery.of(context).size.height * 0.8,
               //   minWidth: MediaQuery.of(context).size.height * 0.9,
               // ),
-              transformAlignment: Alignment.center,
+              // transformAlignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.20,
               width: MediaQuery.of(context).size.height * 0.40,
               color: Colors.white.withOpacity(0.80),

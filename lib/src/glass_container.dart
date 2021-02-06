@@ -36,7 +36,6 @@ class GlassContainer extends StatelessWidget {
     @required this.width,
     this.alignment,
     this.transform,
-    this.transformAlignment,
     this.padding,
     this.margin,
     this.color,
@@ -151,16 +150,6 @@ class GlassContainer extends StatelessWidget {
 
   /// The transformation matrix to apply before painting the GlassContainer.
   final Matrix4 transform;
-
-  /// The alignment of the origin, relative to the size of the GlassContainer,
-  /// if [transform] is specified.
-  ///
-  /// When [transform] is null, the value of this property is ignored.
-  ///
-  /// See also:
-  ///
-  ///  * [Transform.alignment], which is set by this property.
-  final AlignmentGeometry transformAlignment;
 
   /// Align the [child] within the GlassContainer.
   ///
@@ -294,7 +283,6 @@ class GlassContainer extends StatelessWidget {
       child: current,
       transform: transform,
       margin: margin,
-      transformAlignment: transformAlignment,
     );
 
     return current;
