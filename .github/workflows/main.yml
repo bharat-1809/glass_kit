@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        channel: [beta, dev] # TODO: Add the stable channel when nullsafety is available
+        channel: [stable, beta, dev]
 
     steps:
       - uses: actions/checkout@v2
@@ -38,7 +38,7 @@ jobs:
         run: flutter test --no-pub --coverage
 
       - name: Upload coverage to Codecov
-        if: ${{ matrix.channel == 'beta' }}
+        if: ${{ matrix.channel == 'stable' }}
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
