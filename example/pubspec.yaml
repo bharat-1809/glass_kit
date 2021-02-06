@@ -11,15 +11,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.1
 
 dev_dependencies:
   glass_kit:
     path: ../
 
 flutter:
-
   uses-material-design: true
-
   assets:
     - assets/
