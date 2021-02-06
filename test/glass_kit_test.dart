@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:glass_kit/glass_kit.dart';
 
 void main() {
-  GlassContainer createColoredBorderGlassContainer() {
+  GlassContainer _createColoredBorderGlassContainer() {
     return GlassContainer(
       height: 100,
       width: 100,
@@ -16,7 +16,7 @@ void main() {
     );
   }
 
-  GlassContainer createGradientBorderGlassContainer() {
+  GlassContainer _createGradientBorderGlassContainer() {
     return GlassContainer(
       height: 100,
       width: 100,
@@ -29,7 +29,7 @@ void main() {
     );
   }
 
-  GlassContainer createColoredBorderCircleGlassContainer() {
+  GlassContainer _createColoredBorderCircleGlassContainer() {
     return GlassContainer(
       height: 100,
       width: 100,
@@ -39,7 +39,7 @@ void main() {
     );
   }
 
-  GlassContainer createGradientBorderCircelGlassContainer() {
+  GlassContainer _createGradientBorderCircelGlassContainer() {
     return GlassContainer(
       height: 100,
       width: 100,
@@ -53,7 +53,7 @@ void main() {
     );
   }
 
-  GlassContainer createDefaultFrostedGlassContainer() {
+  GlassContainer _createDefaultFrostedGlassContainer() {
     return GlassContainer(
       height: 100,
       width: 100,
@@ -63,7 +63,7 @@ void main() {
     );
   }
 
-  GlassContainer createZeroOpacityFrostedGlassContainer() {
+  GlassContainer _createZeroOpacityFrostedGlassContainer() {
     return GlassContainer(
       height: 100,
       width: 100,
@@ -74,7 +74,7 @@ void main() {
     );
   }
 
-  GlassContainer createRRectGradientBorderGlassContainer() {
+  GlassContainer _createRRectGradientBorderGlassContainer() {
     return GlassContainer(
       height: 200,
       width: 350,
@@ -89,7 +89,7 @@ void main() {
     );
   }
 
-  GlassContainer createModifiedRRectGlassContainer() {
+  GlassContainer _createModifiedRRectGlassContainer() {
     return GlassContainer(
       height: 200,
       width: 350,
@@ -121,7 +121,7 @@ void main() {
     );
   }
 
-  GlassContainer createModifiedCircleGlassContainer() {
+  GlassContainer _createModifiedCircleGlassContainer() {
     return GlassContainer(
       height: 325,
       width: 400,
@@ -156,7 +156,7 @@ void main() {
   group('GlassContainer Structure Test:', () {
     testWidgets('BackdropFilter with no frost layer is present',
         (WidgetTester tester) async {
-      Widget widget = createColoredBorderGlassContainer();
+      Widget widget = _createColoredBorderGlassContainer();
       await tester.pumpWidget(widget);
 
       expect(find.byType(BackdropFilter), findsOneWidget);
@@ -168,7 +168,7 @@ void main() {
 
     testWidgets('Frost layer is present when [isFrosted] is true',
         (WidgetTester tester) async {
-      Widget widget = createDefaultFrostedGlassContainer();
+      Widget widget = _createDefaultFrostedGlassContainer();
       await tester.pumpWidget(widget);
 
       expect(find.byType(Opacity), findsOneWidget);
@@ -180,7 +180,7 @@ void main() {
   group('GlassContainer Smoke Test:', () {
     testWidgets('No frosted layer when [frostedOpacity] == 0.0',
         (WidgetTester tester) async {
-      Widget widget = createZeroOpacityFrostedGlassContainer();
+      Widget widget = _createZeroOpacityFrostedGlassContainer();
       await tester.pumpWidget(widget);
       expect(find.byType(Opacity), findsNothing);
       expect(find.byType(Image), findsNothing);
@@ -189,13 +189,13 @@ void main() {
 
     testWidgets('BorderPainters are not used when borderFill is [color]',
         (WidgetTester tester) async {
-      Widget widget = createColoredBorderGlassContainer();
+      Widget widget = _createColoredBorderGlassContainer();
       await tester.pumpWidget(widget);
 
       expect(find.byType(CustomPaint), findsNothing);
       expect(find.byType(ClipRRect), findsOneWidget);
 
-      widget = createGradientBorderGlassContainer();
+      widget = _createGradientBorderGlassContainer();
       await tester.pumpWidget(widget);
 
       expect(find.byType(CustomPaint), findsOneWidget);
@@ -205,13 +205,13 @@ void main() {
     testWidgets(
         'BorderPainters and Clip are working fine incase of [BoxShape.Circle]',
         (WidgetTester tester) async {
-      Widget widget = createColoredBorderCircleGlassContainer();
+      Widget widget = _createColoredBorderCircleGlassContainer();
       await tester.pumpWidget(widget);
 
       expect(find.byType(CustomPaint), findsNothing);
       expect(find.byType(ClipOval), findsOneWidget);
 
-      widget = createGradientBorderCircelGlassContainer();
+      widget = _createGradientBorderCircelGlassContainer();
       await tester.pumpWidget(widget);
 
       expect(find.byType(CustomPaint), findsOneWidget);
@@ -223,7 +223,7 @@ void main() {
     testWidgets(
         'Rect with ColoredBorder GlassContainer matches goldenfile image',
         (WidgetTester tester) async {
-      Widget widget = createColoredBorderGlassContainer();
+      Widget widget = _createColoredBorderGlassContainer();
       await tester.pumpWidget(widget);
 
       await expectLater(
@@ -236,7 +236,7 @@ void main() {
     testWidgets(
         'Rect with GradientBorder GlassContainer matches goldenfile image',
         (WidgetTester tester) async {
-      Widget widget = createGradientBorderGlassContainer();
+      Widget widget = _createGradientBorderGlassContainer();
       await tester.pumpWidget(widget);
 
       await expectLater(
@@ -249,7 +249,7 @@ void main() {
     testWidgets(
         'Circle with ColoredBorder GlassContainer matches goldenfile image',
         (WidgetTester tester) async {
-      Widget widget = createColoredBorderCircleGlassContainer();
+      Widget widget = _createColoredBorderCircleGlassContainer();
       await tester.pumpWidget(widget);
 
       await expectLater(
@@ -262,7 +262,7 @@ void main() {
     testWidgets(
         'Circle with GradientBorder GlassContainer matches goldenfile image',
         (WidgetTester tester) async {
-      Widget widget = createGradientBorderCircelGlassContainer();
+      Widget widget = _createGradientBorderCircelGlassContainer();
       await tester.pumpWidget(widget);
 
       await expectLater(
@@ -275,7 +275,7 @@ void main() {
     testWidgets(
         'RRect with GradientBorder GlassContainer matches goldenfile image',
         (WidgetTester tester) async {
-      Widget widget = createRRectGradientBorderGlassContainer();
+      Widget widget = _createRRectGradientBorderGlassContainer();
       await tester.pumpWidget(widget);
 
       await expectLater(
@@ -287,7 +287,7 @@ void main() {
 
     testWidgets('Modified RRect GlassContainer matches goldenfile image',
         (WidgetTester tester) async {
-      Widget widget = createModifiedRRectGlassContainer();
+      Widget widget = _createModifiedRRectGlassContainer();
       await tester.pumpWidget(widget);
 
       await expectLater(
@@ -299,7 +299,7 @@ void main() {
 
     testWidgets('Modified Circle GlassContainer matches goldenfile image',
         (WidgetTester tester) async {
-      Widget widget = createModifiedCircleGlassContainer();
+      Widget widget = _createModifiedCircleGlassContainer();
       await tester.pumpWidget(widget);
 
       await expectLater(
