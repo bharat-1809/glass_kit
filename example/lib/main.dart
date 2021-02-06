@@ -63,47 +63,12 @@ class HomePage extends StatelessWidget {
         child: Center(
           child: Container(
             decoration: BoxDecoration(
-                border: Border.all(color: Colors.yellow, width: 2.0)),
-            child: GlassContainer(
-              margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0),
-              // transform: Matrix4.rotationZ(-3.14 / 4),
-              // constraints: BoxConstraints(
-              //   minHeight: MediaQuery.of(context).size.height * 0.8,
-              //   minWidth: MediaQuery.of(context).size.height * 0.9,
-              // ),
-              transformAlignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.20,
-              width: MediaQuery.of(context).size.height * 0.40,
-              color: Colors.white.withOpacity(0.80),
-              // gradient: LinearGradient(
-              //   colors: [
-              //     Colors.lightBlueAccent.withOpacity(0.40),
-              //     Colors.blueAccent.withOpacity(0.10),
-              //   ],
-              //   begin: Alignment.topLeft,
-              //   end: Alignment(0.80, 0.80),
-              // ),
-              borderGradient: LinearGradient(
-                colors: [
-                  // Colors.blueAccent.withOpacity(0.60),
-                  Colors.lightBlueAccent.withOpacity(0.40),
-                  Colors.lightBlueAccent.withOpacity(0.0),
-                  Colors.greenAccent.withOpacity(0.10),
-                  Colors.greenAccent.withOpacity(0.60),
-                ],
-                begin: Alignment(0.0, 0.0),
-                end: Alignment(1.0, 1.0),
-                stops: [0.0, 0.40, 0.40, 1.0],
-              ),
-              // borderColor: Colors.blue,
-              borderWidth: 2,
-              isFrostedGlass: true,
-              // shape: BoxShape.circle,
+              border: Border.all(color: Colors.yellow, width: 2.0),
+            ),
+            child: GlassContainer.clearGlass(
+              height: 200,
+              width: 300,
               borderRadius: BorderRadius.circular(25.0),
-              child: Container(
-                color: Colors.yellow,
-              ),
             ),
           ),
         ),

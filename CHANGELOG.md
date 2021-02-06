@@ -1,3 +1,3 @@
-## 1.0.1-nullsafety.0
+## 1.1.0-nullsafety.1
 
 * Initial release

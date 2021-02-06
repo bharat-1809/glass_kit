@@ -11,6 +11,7 @@ import 'constants.dart';
 ///
 /// A GlassContainer surrounds the child in a [Container] with necessary
 /// decoration properties like [color], [gradient], [borderRadius] and [shape].
+/// Preference is given to [gradient] and [borderGradient] during painting.
 ///
 /// GlassContainer paints border using [CustomPaint] with [RectBorderPainter]
 /// or [CircleBorderPainter] depending on the box shape.
@@ -27,7 +28,7 @@ class GlassContainer extends StatelessWidget {
   ///   [borderGradient]. Preference is given to [gradient] during painting.
   /// * The [borderRadius] argument must be `null` if the [shape] is [BoxShape.Circle]
   /// * By default [borderWidth] is `1.0`, [isFrosted] is set to `false` and [blur] value
-  ///   is set to `10.0`.
+  ///   is set to `12.0`.
   ///
   /// The [shape] argument must not be `null`.
   GlassContainer({
@@ -66,6 +67,121 @@ class GlassContainer extends StatelessWidget {
             'Both color and gradient cannot be null\n'),
         assert(borderColor != null || borderGradient != null,
             'Both borderColor and borderGradient cannot be null\n'),
+        assert(shape != BoxShape.circle || borderRadius == null,
+            'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        super(key: key);
+
+  /// Creates a widget that extends [GlassContainer] to implement a clear glass
+  /// effect.
+  /// Its a default implementation of the effect with editable decorations
+  ///
+  /// * If `color` and `gradient` are null, default value is assigned to gradient.
+  ///   Same goes for `borderColor` and `borderGradient`.
+  /// * Default values are assigned to [borderWidth], [blur], [elevation], and
+  ///   [shadowColor] properties if not specified.
+  ///
+  /// See [Constants](https://github.com/bharat-1809/glass_kit/blob/main/lib/src/constants.dart)
+  GlassContainer.clearGlass({
+    Key? key,
+    required double height,
+    required double width,
+    AlignmentGeometry? alignment,
+    Matrix4? transform,
+    AlignmentGeometry? transformAlignment,
+    EdgeInsetsGeometry? padding,
+    EdgeInsetsGeometry? margin,
+    Gradient? gradient,
+    Color? color,
+    BorderRadius? borderRadius,
+    double? borderWidth,
+    Gradient? borderGradient,
+    Color? borderColor,
+    double? blur,
+    double? elevation,
+    Color? shadowColor,
+    BoxShape shape = BoxShape.rectangle,
+    Widget? child,
+  })  : height = height,
+        width = width,
+        isFrostedGlass = false,
+        frostedOpacity = 0.0,
+        blur = blur ?? kBlur,
+        gradient = gradient ?? (color == null ? kGradientFill : null),
+        color = color,
+        borderGradient = borderGradient ??
+            (borderColor == null ? kBorderGradientFill : null),
+        borderColor = borderColor,
+        borderRadius = shape == BoxShape.rectangle
+            ? (borderRadius ?? kBorderRadius)
+            : null,
+        borderWidth = borderWidth ?? kBorderWidth,
+        elevation = elevation ?? kElevation,
+        margin = margin,
+        padding = padding,
+        shadowColor = shadowColor ?? kShadowColor,
+        shape = shape,
+        transform = transform,
+        transformAlignment = transformAlignment,
+        alignment = alignment,
+        child = child,
+        assert(shape != BoxShape.circle || borderRadius == null,
+            'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        super(key: key);
+
+  /// Creates a widget that extends [GlassContainer] to implement a frosted glass
+  /// effect.
+  /// Its a default implementation of the effect with editable decorations
+  ///
+  /// * If `color` and `gradient` are null, default value is assigned to gradient.
+  ///   Same goes for `borderColor` and `borderGradient`.
+  /// * Default values are assigned to [borderWidth], [blur], [elevation], [frostedOpacity] and
+  ///   [shadowColor] properties if not specified.
+  ///
+  /// See [Constants](https://github.com/bharat-1809/glass_kit/blob/main/lib/src/constants.dart)
+  GlassContainer.frostedGlass({
+    Key? key,
+    required double height,
+    required double width,
+    AlignmentGeometry? alignment,
+    Matrix4? transform,
+    AlignmentGeometry? transformAlignment,
+    EdgeInsetsGeometry? padding,
+    EdgeInsetsGeometry? margin,
+    Gradient? gradient,
+    Color? color,
+    BorderRadius? borderRadius,
+    double? borderWidth,
+    Gradient? borderGradient,
+    Color? borderColor,
+    double? blur,
+    double? elevation,
+    Color? shadowColor,
+    BoxShape shape = BoxShape.rectangle,
+    double? frostedOpacity,
+    Widget? child,
+  })  : height = height,
+        width = width,
+        isFrostedGlass = true,
+        frostedOpacity = frostedOpacity ?? kFrostedOpacity,
+        blur = blur ?? kBlur,
+        gradient = gradient ?? (color == null ? kGradientFill : null),
+        color = color,
+        borderGradient = borderGradient ??
+            (borderColor == null ? kBorderGradientFill : null),
+        borderColor = borderColor,
+        borderRadius = shape == BoxShape.rectangle
+            ? (borderRadius ?? kBorderRadius)
+            : null,
+        borderWidth = borderWidth ?? kBorderWidth,
+        elevation = elevation ?? kElevation,
+        margin = margin,
+        padding = padding,
+        shadowColor = shadowColor ?? kShadowColor,
+        shape = shape,
+        transform = transform,
+        transformAlignment = transformAlignment,
+        alignment = alignment,
+        child = child,
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
         super(key: key);
@@ -117,7 +233,7 @@ class GlassContainer extends StatelessWidget {
   /// In simple words its the extent to which the backdrop of GlassContainer
   /// is blurred
   ///
-  /// By default its value is `10.0`
+  /// By default its value is `12.0`
   final double blur;
 
   /// Whether the GlassContainer will have frosted effect or not.
