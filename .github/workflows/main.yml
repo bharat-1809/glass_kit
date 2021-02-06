@@ -1,9 +1,7 @@
-# This is a basic workflow to help you get started with Actions
 name: CI
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [main]
   pull_request:
@@ -12,36 +10,35 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         channel: [beta, dev] # TODO: Add the stable channel when nullsafety is available
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      - name: Flutter action
-        uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v1
         with:
           channel: ${{ matrix.channel }}
-      
-      # TODO: Add the following check too: flutter analyze --no-pub
-      # Due to some problem with the linter its not working correctly. See issue 
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Format
+        run: flutter format --dry-run --set-exit-if-changed .
+
+      - name: Analyze
+        run: flutter analyze --no-pub
+
       - name: Run Tests
-        run: |
-          flutter pub get
-          flutter format --dry-run --set-exit-if-changed .
-          flutter test --no-pub --coverage
+        run: flutter test --no-pub --coverage
+
       - name: Upload coverage to Codecov
         if: ${{ matrix.channel == 'beta' }}
         uses: codecov/codecov-action@v1
         with:
+          token: ${{ secrets.CODECOV_TOKEN }}
           file: coverage/lcov.info
