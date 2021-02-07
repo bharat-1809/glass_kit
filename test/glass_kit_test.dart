@@ -196,7 +196,8 @@ void main() {
   }
 
   group('GlassContainer Structure Test:', () {
-    testWidgets('BackdropFilter with no frost layer is present', (WidgetTester tester) async {
+    testWidgets('BackdropFilter with no frost layer is present',
+        (WidgetTester tester) async {
       Widget widget = createColoredBorderGlassContainer();
       await tester.pumpWidget(widget);
 
@@ -207,7 +208,8 @@ void main() {
       expect(find.byType(Container), findsNWidgets(4));
     });
 
-    testWidgets('Frost layer is present when [isFrosted] is true', (WidgetTester tester) async {
+    testWidgets('Frost layer is present when [isFrosted] is true',
+        (WidgetTester tester) async {
       Widget widget = createDefaultFrostedGlassContainer();
       await tester.pumpWidget(widget);
 
@@ -216,7 +218,8 @@ void main() {
       expect(find.byType(Container), findsNWidgets(3));
     });
 
-    testWidgets('Layout and tranform properties are working fine', (WidgetTester tester) async {
+    testWidgets('Layout and tranform properties are working fine',
+        (WidgetTester tester) async {
       Widget widget = createGlassContainerWithLayoutProps();
       await tester.pumpWidget(widget);
 
@@ -229,7 +232,8 @@ void main() {
   });
 
   group('GlassContainer Smoke Test:', () {
-    testWidgets('No frosted layer when [frostedOpacity] == 0.0', (WidgetTester tester) async {
+    testWidgets('No frosted layer when [frostedOpacity] == 0.0',
+        (WidgetTester tester) async {
       Widget widget = createZeroOpacityFrostedGlassContainer();
       await tester.pumpWidget(widget);
       expect(find.byType(Opacity), findsNothing);
@@ -252,7 +256,8 @@ void main() {
       expect(find.byType(ClipRRect), findsOneWidget);
     });
 
-    testWidgets('BorderPainters and Clip are working fine incase of [BoxShape.Circle]',
+    testWidgets(
+        'BorderPainters and Clip are working fine incase of [BoxShape.Circle]',
         (WidgetTester tester) async {
       Widget widget = createColoredBorderCircleGlassContainer();
       await tester.pumpWidget(widget);
@@ -286,7 +291,8 @@ void main() {
       expect(find.byType(CustomPaint), findsOneWidget);
     });
 
-    testWidgets('frosted layer is present in frosted glass', (WidgetTester tester) async {
+    testWidgets('frosted layer is present in frosted glass',
+        (WidgetTester tester) async {
       Widget widget = createRectFrostedGlassContainer();
       await tester.pumpWidget(widget);
 
@@ -365,7 +371,8 @@ void main() {
       );
     });
 
-    testWidgets('Modified RRect GlassContainer matches goldenfile', (WidgetTester tester) async {
+    testWidgets('Modified RRect GlassContainer matches goldenfile',
+        (WidgetTester tester) async {
       Widget widget = createModifiedRRectGlassContainer();
       await tester.pumpWidget(widget);
 
@@ -376,7 +383,8 @@ void main() {
       );
     });
 
-    testWidgets('Modified Circle GlassContainer matches goldenfile', (WidgetTester tester) async {
+    testWidgets('Modified Circle GlassContainer matches goldenfile',
+        (WidgetTester tester) async {
       Widget widget = createModifiedCircleGlassContainer();
       await tester.pumpWidget(widget);
 
@@ -387,7 +395,8 @@ void main() {
       );
     });
 
-    testWidgets('RectClearGlassContainer matches goldenfile', (WidgetTester tester) async {
+    testWidgets('RectClearGlassContainer matches goldenfile',
+        (WidgetTester tester) async {
       Widget widget = createRectClearGlassContainer();
       await tester.pumpWidget(widget);
 
@@ -398,7 +407,8 @@ void main() {
       );
     });
 
-    testWidgets('CircleClearGlassContainer matches goldenfile', (WidgetTester tester) async {
+    testWidgets('CircleClearGlassContainer matches goldenfile',
+        (WidgetTester tester) async {
       Widget widget = createCircleClearGlassContainer();
       await tester.pumpWidget(widget);
 
@@ -409,7 +419,8 @@ void main() {
       );
     });
 
-    testWidgets('RectFrostedGlassContainer matches goldenfile', (WidgetTester tester) async {
+    testWidgets('RectFrostedGlassContainer matches goldenfile',
+        (WidgetTester tester) async {
       Widget widget = createRectFrostedGlassContainer();
       await tester.pumpWidget(widget);
 
@@ -420,7 +431,8 @@ void main() {
       );
     });
 
-    testWidgets('CircleFrostedGlassContainer matches goldenfile', (WidgetTester tester) async {
+    testWidgets('CircleFrostedGlassContainer matches goldenfile',
+        (WidgetTester tester) async {
       Widget widget = createCircleFrostedGlassContainer();
       await tester.pumpWidget(widget);
 
@@ -431,7 +443,8 @@ void main() {
       );
     });
 
-    testWidgets('Layout and Transform props matches goldenfile', (WidgetTester tester) async {
+    testWidgets('Layout and Transform props matches goldenfile',
+        (WidgetTester tester) async {
       Widget widget = createGlassContainerWithLayoutProps();
       await tester.pumpWidget(widget);
 
