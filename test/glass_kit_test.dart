@@ -181,15 +181,19 @@ void main() {
     final _key = GlobalKey();
     return MaterialApp(
       home: Scaffold(
-        body: GlassContainer.frostedGlass(
-          key: _key,
-          height: 200,
-          width: 350,
-          alignment: Alignment.bottomRight,
-          child: const Text('Glass Kit'),
-          margin: const EdgeInsets.all(10.0),
-          padding: const EdgeInsets.all(8.0),
-          transform: Matrix4.identity()..rotateZ(0.10),
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: GlassContainer.frostedGlass(
+            key: _key,
+            height: 200,
+            width: 350,
+            borderRadius: BorderRadius.circular(24.0),
+            alignment: Alignment.bottomRight,
+            child: const Text('Glass Kit'),
+            margin: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(8.0),
+            transform: Matrix4.identity()..rotateZ(0.10),
+          ),
         ),
       ),
     );
