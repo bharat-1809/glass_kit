@@ -52,23 +52,23 @@ import 'package:glass_kit/glass_kit.dart';
 
 # Usage
 
-To create a basic clear glass container you can use the `GlassContainer.clearGlass` constructor. Just provide the `height` and `width` and you are good to go. The `clearGlass` and `frostedGlass` constructors assign default values to the properties if not provided.
+To create a basic clear glass container you can use the `clearGlass` constructor. Just provide the `height` and `width` and you are good to go. The `clearGlass` and `frostedGlass` constructors assign default values to the properties if not provided.
 
 ```dart
 GlassContainer.clearGlass(height: 200, width: 300, child: Child());
 ```
 
-To create a frosted glass container use the `GlassContainer.frostedGlass` constructor.
+To create a frosted glass container use the `frostedGlass` constructor.
 
 ```dart
 GlassContainer.frostedGlass(height: 200, width: 300, child: Child());
 ```
 
-Depending on your requirements you can tweak with the properties and create awesome glass widgets. You can also use the `GlassContainer` constructor to create fully customizable glass widgets.<br>
-GlassContainer comes with properties as in a regular Container but with some exceptions and additions. Checkout the [docs]() for the list of properties and their default values.
-<br>
+Depending on your requirements you can tweak with the properties and create awesome glass widgets. You can also use the `GlassContainer` constructor to create fully customizable glass widgets.<br><br>
+**__Note :__** GlassContainer comes with properties as in a regular Container but with some exceptions and additions. Checkout the [*docs*]() for the list of properties and their default values.
+<br><br>
 
-Here's a fully customized GlassContainer:
+Here's a fully customized GlassContainer with shape as circle:
 
 ```dart
 GlassContainer(
@@ -96,7 +96,7 @@ GlassContainer(
       padding: EdgeInsets.all(8.0),
     );
 ```
-Note: You can also provide `borderRadius` but when the shape is `BoxShape.rectangle`. 
+**__Note :__** You can also provide `borderRadius` but when the shape is `BoxShape.rectangle`. 
 
 # Bugs or Requests
 
