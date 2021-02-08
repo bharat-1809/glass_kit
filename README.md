@@ -42,9 +42,9 @@ dependencies:
   glass_kit: ^1.0.1
 ```
 
-You should then run `flutter packages get` in your terminal so as to get the package.
+You should then run `flutter packages get` in your terminal so as to get the package.<br>
 
-Now import the package in your `dart` code:
+Now import the package in the dart file:
 
 ```dart
 import 'package:glass_kit/glass_kit.dart';
@@ -96,7 +96,7 @@ GlassContainer(
       padding: EdgeInsets.all(8.0),
     );
 ```
-**__Note :__** You can also provide `borderRadius` but when the shape is `BoxShape.rectangle`. 
+**__Note :__** You can also provide `borderRadius` but when the shape is `BoxShape.rectangle`.<br>
 
 # Bugs or Requests
 
