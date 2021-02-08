@@ -419,30 +419,30 @@ class GlassContainer extends StatelessWidget {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
+    properties.add(ObjectFlagProperty<Matrix4>.has('transform', transform));
     properties.add(DiagnosticsProperty<double>('borderWidth', borderWidth,
         defaultValue: kBorderWidth, ifNull: 'no border width'));
-    properties.add(DiagnosticsProperty<AlignmentGeometry>(
-        'alignment', alignment,
-        defaultValue: null, showName: false));
     properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('padding', padding,
         defaultValue: null));
     properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('margin', margin,
         defaultValue: null));
-    properties.add(ObjectFlagProperty<Matrix4>.has('transform', transform));
-    properties
-        .add(DiagnosticsProperty<BorderRadius>('borderRadius', borderRadius));
     properties.add(DiagnosticsProperty<bool>('isfrostedGlass', isFrostedGlass,
         defaultValue: kIsFrosted, ifNull: '<indeterminate>'));
     properties.add(PercentProperty('frostedOpacity', frostedOpacity,
         showName: true, ifNull: '<indeterminate>'));
-    properties
-        .add(DiagnosticsProperty<double>('blur', blur, defaultValue: kBlur));
     properties.add(EnumProperty<BoxShape>('shape', shape,
         defaultValue: BoxShape.rectangle, level: DiagnosticLevel.info));
-    properties.add(
-        ColorProperty('shadowColor', shadowColor, defaultValue: kShadowColor));
     properties.add(DiagnosticsProperty<double>('elevation', elevation,
         defaultValue: kElevation));
+    properties
+        .add(DiagnosticsProperty<double>('blur', blur, defaultValue: kBlur));
+    properties
+        .add(DiagnosticsProperty<BorderRadius>('borderRadius', borderRadius));
+    properties.add(DiagnosticsProperty<AlignmentGeometry>(
+        'alignment', alignment,
+        defaultValue: null, showName: false));
+    properties.add(
+        ColorProperty('shadowColor', shadowColor, defaultValue: kShadowColor));
 
     if (gradient != null)
       properties.add(DiagnosticsProperty<Gradient>('bg', gradient));
