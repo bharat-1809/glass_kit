@@ -7,4 +7,4 @@ version:
   revision: 5d36f2e7f5387b6c751449258ade8e4e6edf99be
   channel: beta
 
-project_type: package.
+project_type: package
