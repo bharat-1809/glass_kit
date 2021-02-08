@@ -52,8 +52,7 @@ import 'package:glass_kit/glass_kit.dart';
 
 # Usage
 
-To create a basic clear glass container you can use the `GlassContainer.clearGlass` constructor.
-Just provide the `height` and `width` and you are good to go.
+To create a basic clear glass container you can use the `GlassContainer.clearGlass` constructor. Just provide the `height` and `width` and you are good to go. The `clearGlass` and `frostedGlass` constructors assign default values to the properties if not provided.
 
 ```dart
 GlassContainer.clearGlass(height: 200, width: 300, child: Child());
@@ -65,33 +64,23 @@ To create a frosted glass container use the `GlassContainer.frostedGlass` constr
 GlassContainer.frostedGlass(height: 200, width: 300, child: Child());
 ```
 
-`clearGlass` and `frostedGlass` constructors assign default values to the properties if not provided.
-
-Depending on your requirements you can tweak with the properties and create awesome glass widgets. You can also use the `GlassContainer` constructor to create a fully customizable glass widgets.<br>
+Depending on your requirements you can tweak with the properties and create awesome glass widgets. You can also use the `GlassContainer` constructor to create fully customizable glass widgets.<br>
 GlassContainer comes with properties as in a regular Container but with some exceptions and additions. Checkout the [docs]() for the list of properties and their default values.
-<br><br>
+<br>
 
-Here's a customized GlassContainer:
+Here's a fully customized GlassContainer:
 
 ```dart
 GlassContainer(
       height: 300,
       width: 400,
       gradient: LinearGradient(
-        colors: [
-          Colors.white.withOpacity(0.40),
-          Colors.white.withOpacity(0.10),
-        ],
+        colors: [Colors.white.withOpacity(0.40), Colors.white.withOpacity(0.10)],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
       borderGradient: LinearGradient(
-        colors: [
-          Colors.white.withOpacity(0.60),
-          Colors.white.withOpacity(0.10),
-          Colors.lightBlueAccent.withOpacity(0.05),
-          Colors.lightBlueAccent.withOpacity(0.60),
-        ],
+        colors: [Colors.white.withOpacity(0.60), Colors.white.withOpacity(0.10), Colors.lightBlueAccent.withOpacity(0.05), Colors.lightBlueAccent.withOpacity(0.6)],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         stops: [0.0, 0.39, 0.40, 1.0],
@@ -132,4 +121,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 # License
 
-**glass_kit** is licensed under [`MIT License`](./LICENSE)
+**glass_kit** is licensed under `MIT License`
