@@ -30,7 +30,6 @@ class GlassContainer extends StatelessWidget {
   ///   is set to `12.0`.
   ///
   /// The [shape] argument must not be `null`.
-  /// @{vm}
   GlassContainer({
     Key key,
     @required this.height,
@@ -79,7 +78,7 @@ class GlassContainer extends StatelessWidget {
   /// * Default values are assigned to [borderWidth], [blur], [elevation], and
   ///   [shadowColor] properties if not specified.
   ///
-  /// See [Constants](https://github.com/bharat-1809/glass_kit/blob/main/lib/src/constants.dart)
+  /// See [Constants](https://pub.dev/documentation/glass_kit/latest/glass_kit/glass_kit-library.html#constants)
   GlassContainer.clearGlass({
     Key key,
     @required double height,
@@ -134,7 +133,7 @@ class GlassContainer extends StatelessWidget {
   /// * Default values are assigned to [borderWidth], [blur], [elevation], [frostedOpacity] and
   ///   [shadowColor] properties if not specified.
   ///
-  /// See [Constants](https://github.com/bharat-1809/glass_kit/blob/main/lib/src/constants.dart)
+  /// See [Constants](https://pub.dev/documentation/glass_kit/latest/glass_kit/glass_kit-library.html#constants)
   GlassContainer.frostedGlass({
     Key key,
     @required double height,
