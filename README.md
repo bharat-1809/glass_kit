@@ -12,7 +12,7 @@ A package containing widgets to implement glass morphism in flutter apps
 <div align="center">
 
 [![Platform](https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter)](https://flutter.dev)
-[![Pub Package](https://img.shields.io/pub/v/glass_kit.svg?label=glass_kit)](https://pub.dev/packages/glass_kit)
+[![Pub Package](https://img.shields.io/endpoint?url=https://glass-kit-svg-badge-mlbuzdr853sr.runkit.sh)](https://pub.dev/packages/glass_kit)
 [![Build Status](https://img.shields.io/github/workflow/status/bharat-1809/glass_kit/CI?logo=github)](https://github.com/bharat-1809/glass_kit)
 [![Codecov Coverage](https://codecov.io/gh/bharat-1809/glass_kit/branch/main/graph/badge.svg?token=N0DFJC64ZA)](https://codecov.io/gh/bharat-1809/glass_kit)
 [![License: MIT](https://img.shields.io/github/license/bharat-1809/glass_kit?color=red)](https://opensource.org/licenses/MIT)
