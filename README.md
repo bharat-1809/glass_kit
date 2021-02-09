@@ -36,8 +36,8 @@ GlassMorphism, is a new UI trend with a huge popularity among designers. Glass K
 ## Gallery:
 
 <br><br>
-<img src="./display/home_theme.png" width=210 alt="ios-themed-glassmorphism"/> &nbsp; &nbsp; &nbsp; &nbsp;
-<img src="./display/card.png" width=210 alt="glassmorphism-in-card"/>
+<img src="./display/home_theme.png" width=230 alt="ios-themed-glassmorphism"/> &nbsp; &nbsp; &nbsp; &nbsp;
+<img src="./display/card.png" width=230 alt="glassmorphism-in-card"/>
 <br>
 
 Source code for the above can be found in the example directory [here](https://github.com/bharat-1809/glass_kit/tree/main/example/lib)
