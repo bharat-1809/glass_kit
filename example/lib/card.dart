@@ -94,7 +94,8 @@ class CardChild extends StatelessWidget {
                 Text('BHARAT SHARMA', style: textStyle),
                 Text(
                   '01/23',
-                  style: textStyle.copyWith(fontSize: 14.0, fontWeight: FontWeight.w300),
+                  style: textStyle.copyWith(
+                      fontSize: 14.0, fontWeight: FontWeight.w300),
                 ),
               ],
             ),

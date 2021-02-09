@@ -1,4 +1,3 @@
-import 'package:example/card.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 

@@ -229,7 +229,8 @@ class WeatherWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text('Cloudy', style: textStyle.copyWith(fontSize: 12.0)),
-                  Text('H:30° L:19°', style: textStyle.copyWith(fontSize: 12.0)),
+                  Text('H:30° L:19°',
+                      style: textStyle.copyWith(fontSize: 12.0)),
                   SizedBox(height: 5.0),
                 ],
               )
