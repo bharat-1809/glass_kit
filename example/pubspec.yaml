@@ -1,7 +1,7 @@
 name: example
 description: An example app to show the use of glass_kit
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
@@ -11,10 +11,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-dev_dependencies:
   glass_kit:
     path: ../
+  font_awesome_flutter: ^8.11.0
+  google_fonts: ^1.1.2
+
+dev_dependencies: null
 
 flutter:
   uses-material-design: true
