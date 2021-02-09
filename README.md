@@ -1,9 +1,9 @@
 <div align="center">
 
-![](https://github.com/bharat-1809/JustSplit/blob/master/JustSplit_header-01.png?raw=true)
+![](https://raw.githubusercontent.com/bharat-1809/glass_kit/main/display/glass_kit_banner.png)
 <br>
 
-# Glass Kit
+#
 
 A package containing widgets to implement glass morphism in flutter apps
 
