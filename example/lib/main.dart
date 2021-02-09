@@ -1,3 +1,4 @@
+import 'package:example/card.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 
@@ -23,14 +24,14 @@ class HomePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/bg_2.jpg'),
+            image: AssetImage('assets/bg_1.jpg'),
             fit: BoxFit.cover,
           ),
         ),
         child: Center(
           child: GlassContainer(
-            height: 325,
-            width: 400,
+            height: 200,
+            width: 350,
             gradient: LinearGradient(
               colors: [
                 Colors.white.withOpacity(0.40),
