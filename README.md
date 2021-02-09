@@ -1,6 +1,6 @@
 <div align="center">
 
-![](./display/glass_kit_banner.png)
+![Glass Kit](https://raw.githubusercontent.com/bharat-1809/glass_kit/main/display/glass_kit_banner.png)
 <br>
 
 #
@@ -36,8 +36,8 @@ GlassMorphism, is a new UI trend with a huge popularity among designers. Glass K
 ## Gallery:
 
 <br><br>
-<img src="./display/home_theme.png" width=250 alt="ios-themed-glassmorphism"/> &nbsp; &nbsp; &nbsp; &nbsp;
-<img src="./display/card.png" width=250 alt="glassmorphism-in-card"/>
+<img src="https://raw.githubusercontent.com/bharat-1809/glass_kit/main/display/home_theme.png" width=250 alt="ios-themed-glassmorphism"/> &nbsp; &nbsp; &nbsp; &nbsp;
+<img src="https://raw.githubusercontent.com/bharat-1809/glass_kit/main/display/card.png" width=250 alt="glassmorphism-in-card"/>
 <br>
 
 Source code for the above can be found in the example directory [here](https://github.com/bharat-1809/glass_kit/tree/main/example/lib)
