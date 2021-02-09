@@ -1,6 +1,6 @@
 <div align="center">
 
-![](https://raw.githubusercontent.com/bharat-1809/glass_kit/main/display/glass_kit_banner.png)
+![](./display/glass_kit_banner.png)
 <br>
 
 #
@@ -31,7 +31,18 @@ A package containing widgets to implement glass morphism in flutter apps
 
 # About
 
-GlassMorphism, is a new UI trend with a huge popularity among designers. Glass Kit provides you with widgets and other elements to implement this style in your flutter apps.<br>
+GlassMorphism, is a new UI trend with a huge popularity among designers. Glass Kit provides you with widgets and other elements to implement this style in your flutter apps easily and efficiently.<br>
+
+## Gallery:
+
+<br><br>
+<img src="./display/home_theme.png" width=210 alt="ios-themed-glassmorphism"/> &nbsp; &nbsp; &nbsp; &nbsp;
+<img src="./display/card.png" width=210 alt="glassmorphism-in-card"/>
+<br>
+
+Source code for the above can be found in the example directory [here](https://github.com/bharat-1809/glass_kit/tree/main/example/lib)
+
+<br>
 
 # Getting Started
 
