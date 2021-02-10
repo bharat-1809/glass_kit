@@ -2,8 +2,7 @@
 
 ![Glass Kit](https://raw.githubusercontent.com/bharat-1809/glass_kit/main/display/glass_kit_banner.png)
 <br>
-
-#
+<br>
 
 A package containing widgets to implement glass morphism in flutter apps
 
