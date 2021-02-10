@@ -15,7 +15,7 @@ A package containing widgets to implement glass morphism in flutter apps
 [![Pub Package](https://img.shields.io/endpoint?url=https://glass-kit-svg-badge-mlbuzdr853sr.runkit.sh)](https://pub.dev/packages/glass_kit)
 [![Build Status](https://img.shields.io/github/workflow/status/bharat-1809/glass_kit/CI?logo=github)](https://github.com/bharat-1809/glass_kit)
 [![Codecov Coverage](https://codecov.io/gh/bharat-1809/glass_kit/branch/main/graph/badge.svg?token=N0DFJC64ZA)](https://codecov.io/gh/bharat-1809/glass_kit)
-[![License: MIT](https://img.shields.io/github/license/bharat-1809/glass_kit?color=red)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/github/license/bharat-1809/glass_kit)](https://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal)](https://www.paypal.me/bsharma1809)
 
 </div><br>
@@ -111,9 +111,9 @@ GlassContainer(
 
 # Bugs or Requests
 
-If you encounter any problems feel free to open an [issue](). If you feel the library is missing a feature, please raise a [ticket]() on GitHub and I'll look into it. Pull requests are also welcome.
+If you encounter any problems feel free to open an [issue](https://github.com/bharat-1809/glass_kit/issues/new?assignees=&labels=bug&template=bug_report.md&title=). If you feel the library is missing a feature, please raise a [ticket](https://github.com/bharat-1809/glass_kit/issues/new?assignees=&labels=&template=feature_request.md&title=) on GitHub and I'll look into it. Pull requests are also welcome.
 
-See [Contributing.md]().
+See [Contributing.md](https://github.com/bharat-1809/glass_kit/blob/main/CONTRIBUTING.md).
 
 # Contributors
 
@@ -128,7 +128,7 @@ See [Contributing.md]().
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome! See [Contributing.md]().
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome! See [Contributing.md](https://github.com/bharat-1809/glass_kit/blob/main/CONTRIBUTING.md).
 
 # License
 
