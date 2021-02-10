@@ -76,7 +76,7 @@ GlassContainer.frostedGlass(height: 200, width: 300, child: Child());
 ```
 
 Depending on your requirements you can tweak with the properties and create awesome glass widgets. You can also use the `GlassContainer` constructor to create fully customizable glass widgets.<br><br>
-**__Note :__** GlassContainer comes with properties as in a regular Container but with some exceptions and additions. Checkout the [*docs*]() for the list of properties and their default values.
+**__Note :__** GlassContainer comes with properties as in a regular Container but with some exceptions and additions. Checkout the [*docs*](https://pub.dev/documentation/glass_kit/latest/glass_kit/GlassContainer-class.html#instance-properties) for the list of properties and their default values.
 <br><br>
 
 Here's a fully customized GlassContainer with shape as circle:
