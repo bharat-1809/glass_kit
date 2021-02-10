@@ -28,6 +28,7 @@ class GlassContainer extends StatelessWidget {
   /// * The [borderRadius] argument must be `null` if the [shape] is [BoxShape.Circle]
   /// * By default [borderWidth] is `1.0`, [isFrosted] is set to `false` and [blur] value
   ///   is set to `12.0`.
+  /// * If the shape is [BoxShape.circle] then [height] is used as the diameter.
   ///
   /// The [shape] argument must not be `null`.
   GlassContainer({
@@ -77,6 +78,7 @@ class GlassContainer extends StatelessWidget {
   ///   Same goes for `borderColor` and `borderGradient`.
   /// * Default values are assigned to [borderWidth], [blur], [elevation], and
   ///   [shadowColor] properties if not specified.
+  /// * If the shape is [BoxShape.circle] then [height] is used as the diameter.
   ///
   /// See [Constants](https://pub.dev/documentation/glass_kit/latest/glass_kit/glass_kit-library.html#constants)
   GlassContainer.clearGlass({
@@ -132,6 +134,7 @@ class GlassContainer extends StatelessWidget {
   ///   Same goes for `borderColor` and `borderGradient`.
   /// * Default values are assigned to [borderWidth], [blur], [elevation], [frostedOpacity] and
   ///   [shadowColor] properties if not specified.
+  /// * If the shape is [BoxShape.circle] then [height] is used as the diameter.
   ///
   /// See [Constants](https://pub.dev/documentation/glass_kit/latest/glass_kit/glass_kit-library.html#constants)
   GlassContainer.frostedGlass({
@@ -243,7 +246,7 @@ class GlassContainer extends StatelessWidget {
   final double frostedOpacity;
 
   /// The shape to fill the background [color], [gradient] into and
-  /// to cast as the shadow.
+  /// to cast as the shadow. The [heigth] is used as the diameter of the circle
   ///
   /// If this is [BoxShape.circle] then [borderRadius] must be `null`.
   final BoxShape shape;
@@ -388,12 +391,14 @@ class GlassContainer extends StatelessWidget {
       child: current,
     );
 
-    current = Container(
-      height: height,
-      width: _isCircle ? height : width,
-      child: current,
-      transform: transform,
-      margin: margin,
+    current = Center(
+      child: Container(
+        height: height,
+        width: _isCircle ? height : width,
+        child: current,
+        transform: transform,
+        margin: margin,
+      ),
     );
 
     return current;
