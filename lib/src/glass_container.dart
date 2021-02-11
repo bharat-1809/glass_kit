@@ -68,6 +68,8 @@ class GlassContainer extends StatelessWidget {
             'Both borderColor and borderGradient cannot be null\n'),
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        assert(kIsWeb != true || borderColor != null,
+            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// Creates a widget that extends [GlassContainer] to implement a clear glass
@@ -124,6 +126,8 @@ class GlassContainer extends StatelessWidget {
         child = child,
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        assert(kIsWeb != true || borderColor != null,
+            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// Creates a widget that extends [GlassContainer] to implement a frosted glass
@@ -181,6 +185,8 @@ class GlassContainer extends StatelessWidget {
         child = child,
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        assert(kIsWeb != true || borderColor != null,
+            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// The [child] contained by the GlassContainer.
@@ -320,9 +326,12 @@ class GlassContainer extends StatelessWidget {
 
   bool get _isCircle => shape == BoxShape.circle;
   bool get _colorOnlyBorder => borderGradient == null;
+  bool get _isWeb => kIsWeb;
 
   @override
   Widget build(BuildContext context) {
+    if (_isWeb) assert(borderColor != null);
+
     Widget current = child;
 
     // Enclose the child within a container with padding, alignment and decoration
@@ -342,7 +351,8 @@ class GlassContainer extends StatelessWidget {
     );
 
     // If the border is gradient border then paint the border according to the shape
-    if (!_colorOnlyBorder) {
+    // Incase the app is compiled to run on web then CustomPaint wont work
+    if (!_colorOnlyBorder && !_isWeb) {
       assert(borderGradient != null);
       if (_isCircle) {
         assert(borderRadius == null);
