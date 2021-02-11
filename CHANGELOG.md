@@ -1,6 +1,6 @@
 ## 1.0.2
 
-* Improved Web performance
+* Web Support
 * Minor Bug Fixes
 
 ## 1.0.1
