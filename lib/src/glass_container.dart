@@ -330,8 +330,6 @@ class GlassContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (kIsWeb) assert(borderColor != null);
-
     Widget current = child;
 
     // Enclose the child within a container with padding, alignment and decoration
