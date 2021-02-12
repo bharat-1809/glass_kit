@@ -2,7 +2,6 @@
 
 ![Glass Kit](https://raw.githubusercontent.com/bharat-1809/glass_kit/main/display/glass_kit_banner.png)
 <br>
-<br>
 
 A package containing widgets to implement glass morphism in flutter apps
 
@@ -49,7 +48,7 @@ You should add the following to the `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  glass_kit: ^1.0.1
+  glass_kit: ^1.0.2
 ```
 
 You should then run `flutter packages get` in your terminal so as to get the package.<br>

@@ -68,6 +68,8 @@ class GlassContainer extends StatelessWidget {
             'Both borderColor and borderGradient cannot be null\n'),
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        assert(kIsWeb != true || borderColor != null,
+            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// Creates a widget that extends [GlassContainer] to implement a clear glass
@@ -124,6 +126,8 @@ class GlassContainer extends StatelessWidget {
         child = child,
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        assert(kIsWeb != true || borderColor != null,
+            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// Creates a widget that extends [GlassContainer] to implement a frosted glass
@@ -181,6 +185,8 @@ class GlassContainer extends StatelessWidget {
         child = child,
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        assert(kIsWeb != true || borderColor != null,
+            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// The [child] contained by the GlassContainer.
@@ -281,9 +287,10 @@ class GlassContainer extends StatelessWidget {
   final EdgeInsetsGeometry margin;
 
   /// Returns an empty [Container] or [_FrostedContainer] depending on the
-  /// [isFrosted] flag and the [frostedOpacity] property
+  /// [isFrosted] flag and the [frostedOpacity] property.
+  /// If the app is running on web then also a container is returned
   Widget get _frostedContainer {
-    if (!isFrostedGlass || frostedOpacity == 0.0) {
+    if (!isFrostedGlass || frostedOpacity == 0.0 || kIsWeb) {
       return Container();
     } else {
       return _FrostedWidget(
@@ -307,7 +314,7 @@ class GlassContainer extends StatelessWidget {
   /// If its color-only-border, then return [Border] to be used
   /// in the decoration of the container.
   Border get _border {
-    if (_colorOnlyBorder) {
+    if (_colorOnlyBorder || kIsWeb) {
       assert(borderColor != null);
       return Border.all(
         color: borderColor,
@@ -342,7 +349,8 @@ class GlassContainer extends StatelessWidget {
     );
 
     // If the border is gradient border then paint the border according to the shape
-    if (!_colorOnlyBorder) {
+    // Incase the app is compiled to run on web then CustomPaint wont work
+    if (!_colorOnlyBorder && !kIsWeb) {
       assert(borderGradient != null);
       if (_isCircle) {
         assert(borderRadius == null);
