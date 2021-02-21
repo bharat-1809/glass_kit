@@ -1,0 +1,12 @@
+{
+  "files": ["README.md"],
+  "imageSize": 100,
+  "commit": false,
+  "contributorsPerLine": 7,
+  "projectName": "Glass Kit",
+  "projectOwner": "bharat-1809",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+  "contributors": []
+}

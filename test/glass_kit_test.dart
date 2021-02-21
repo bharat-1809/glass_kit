@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -220,7 +221,22 @@ void main() {
 
       expect(find.byType(Opacity), findsOneWidget);
       expect(find.byType(Image), findsOneWidget);
-      expect(find.byType(Container), findsNWidgets(3));
+      if (kIsWeb)
+        expect(find.byType(Container), findsNWidgets(4));
+      else
+        expect(find.byType(Container), findsNWidgets(3));
+    });
+
+    testWidgets('Layout and tranform properties are working fine',
+        (WidgetTester tester) async {
+      Widget widget = createGlassContainerWithLayoutProps();
+      await tester.pumpWidget(widget);
+
+      // one for padding and other for margin
+      expect(find.byType(Padding), findsNWidgets(2));
+      expect(find.byType(Transform), findsWidgets);
+      expect(find.byType(Align), findsOneWidget);
+      expect(find.byType(Text), findsOneWidget);
     });
 
     testWidgets('Layout and tranform properties are working fine',

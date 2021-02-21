@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 /// Used by GlassContainer to paint the gradient borders
 class RectBorderPainter extends CustomPainter {
   RectBorderPainter({
-    required this.radius,
-    required this.strokeWidth,
-    required this.gradient,
+    @required this.radius,
+    @required this.strokeWidth,
+    @required this.gradient,
   }) : _paint = Paint();
 
   final Paint _paint;
@@ -43,9 +43,9 @@ class RectBorderPainter extends CustomPainter {
 /// Used by GlassContainer to paint the gradient borders
 class CircleBorderPainter extends CustomPainter {
   CircleBorderPainter({
-    required this.radius,
-    required this.gradient,
-    required this.strokeWidth,
+    @required this.radius,
+    @required this.gradient,
+    @required this.strokeWidth,
   }) : _paint = Paint();
 
   final Paint _paint;

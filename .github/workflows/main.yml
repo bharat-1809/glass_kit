@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        channel: [beta, dev] # TODO: Add the stable channel when nullsafety is available
+        channel: [stable] # FIXME: Add the beta and dev channels when the test issue is resolved with layout test
 
     steps:
       - uses: actions/checkout@v2
@@ -29,16 +29,15 @@ jobs:
 
       - name: Format
         run: flutter format --dry-run --set-exit-if-changed .
-      
-      # FIXME: Fix the analyzer issue. Uncomment when fixed form dart side 
-      # - name: Analyze
-      #   run: flutter analyze --no-pub
+       
+      - name: Analyze
+        run: flutter analyze --no-pub
 
       - name: Run Tests
         run: flutter test --no-pub --coverage
 
       - name: Upload coverage to Codecov
-        if: ${{ matrix.channel == 'beta' }}
+        if: ${{ matrix.channel == 'stable' }}
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

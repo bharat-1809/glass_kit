@@ -16,38 +16,6 @@ class GlassKitApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  GlassContainer createModifiedCircleGlassContainer() {
-    return GlassContainer(
-      height: 325,
-      width: 400,
-      gradient: LinearGradient(
-        colors: [
-          Colors.lightGreen.withOpacity(0.40),
-          Colors.lightGreen.withOpacity(0.10),
-        ],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-      ),
-      borderGradient: LinearGradient(
-        colors: [
-          Colors.lightBlue.withOpacity(0.60),
-          Colors.lightBlue.withOpacity(0.10),
-          Colors.lightBlueAccent.withOpacity(0.05),
-          Colors.lightBlueAccent.withOpacity(0.60),
-        ],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        stops: [0.0, 0.39, 0.40, 1.0],
-      ),
-      blur: 20,
-      shape: BoxShape.circle,
-      borderWidth: 1.5,
-      elevation: 3.0,
-      isFrostedGlass: true,
-      shadowColor: Colors.lightGreenAccent.withOpacity(0.20),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,21 +23,39 @@ class HomePage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/bg_2.jpg'),
+            image: AssetImage('assets/bg_1.jpg'),
             fit: BoxFit.cover,
           ),
-          color: Colors.black54,
         ),
         child: Center(
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.yellow, width: 2.0),
+          child: GlassContainer(
+            height: 200,
+            width: 350,
+            gradient: LinearGradient(
+              colors: [
+                Colors.white.withOpacity(0.40),
+                Colors.white.withOpacity(0.10),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
             ),
-            child: GlassContainer.clearGlass(
-              height: 200,
-              width: 300,
-              borderRadius: BorderRadius.circular(25.0),
+            borderGradient: LinearGradient(
+              colors: [
+                Colors.white.withOpacity(0.60),
+                Colors.white.withOpacity(0.10),
+                Colors.purpleAccent.withOpacity(0.05),
+                Colors.purpleAccent.withOpacity(0.60),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              stops: [0.0, 0.39, 0.40, 1.0],
             ),
+            blur: 20,
+            borderRadius: BorderRadius.circular(24.0),
+            borderWidth: 1.0,
+            elevation: 3.0,
+            isFrostedGlass: true,
+            shadowColor: Colors.purple.withOpacity(0.20),
           ),
         ),
       ),
