@@ -9,13 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-dev_dependencies:
   glass_kit:
     path: ../
-  font_awesome_flutter: ^8.11.0
+  font_awesome_flutter: ^9.0.0-nullsafety
   google_fonts: ^1.1.2
 
+dev_dependencies: null
+  
 flutter:
   uses-material-design: true
   assets:
