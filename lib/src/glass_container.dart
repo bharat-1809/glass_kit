@@ -33,24 +33,25 @@ class GlassContainer extends StatelessWidget {
   ///
   /// The [shape] argument must not be `null`.
   GlassContainer({
-    Key key,
-    @required this.height,
-    @required this.width,
+    Key? key,
+    required this.height,
+    required this.width,
     this.alignment,
     this.transform,
+    this.transformAlignment,
     this.padding,
     this.margin,
     this.color,
     this.gradient,
-    BorderRadius borderRadius,
-    double borderWidth,
+    BorderRadius? borderRadius,
+    double? borderWidth,
     this.borderColor,
     this.borderGradient,
-    double blur,
-    bool isFrostedGlass,
-    double frostedOpacity,
-    double elevation,
-    Color shadowColor,
+    double? blur,
+    bool? isFrostedGlass,
+    double? frostedOpacity,
+    double? elevation,
+    Color? shadowColor,
     BoxShape shape = BoxShape.rectangle,
     this.child,
   })  : borderWidth = borderWidth ?? kBorderWidth,
@@ -84,122 +85,6 @@ class GlassContainer extends StatelessWidget {
   /// * If the shape is [BoxShape.circle] then [height] is used as the diameter.
   ///
   /// See [Constants](https://pub.dev/documentation/glass_kit/latest/glass_kit/glass_kit-library.html#constants)
-  GlassContainer.clearGlass({
-    Key key,
-    @required double height,
-    @required double width,
-    AlignmentGeometry alignment,
-    Matrix4 transform,
-    EdgeInsetsGeometry padding,
-    EdgeInsetsGeometry margin,
-    Gradient gradient,
-    Color color,
-    BorderRadius borderRadius,
-    double borderWidth,
-    Gradient borderGradient,
-    Color borderColor,
-    double blur,
-    double elevation,
-    Color shadowColor,
-    BoxShape shape = BoxShape.rectangle,
-    Widget child,
-  })  : height = height,
-        width = width,
-        isFrostedGlass = false,
-        frostedOpacity = 0.0,
-        blur = blur ?? kBlur,
-        gradient = gradient ?? (color == null ? kGradientFill : null),
-        color = color,
-        borderGradient = borderGradient ??
-            (borderColor == null ? kBorderGradientFill : null),
-        borderColor = borderColor,
-        borderRadius = shape == BoxShape.rectangle
-            ? (borderRadius ?? kBorderRadius)
-            : null,
-        borderWidth = borderWidth ?? kBorderWidth,
-        elevation = elevation ?? kElevation,
-        margin = margin,
-        padding = padding,
-        shadowColor = shadowColor ?? kShadowColor,
-        shape = shape,
-        transform = transform,
-        alignment = alignment,
-        child = child,
-        assert(shape != BoxShape.circle || borderRadius == null,
-            'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
-        assert(kIsWeb != true || borderColor != null,
-            'borderColor cannot be null when runing on the Web\n'),
-        super(key: key);
-
-  /// Creates a widget that extends [GlassContainer] to implement a frosted glass
-  /// effect.
-  /// Its a default implementation of the effect with editable decorations
-  ///
-  /// * If `color` and `gradient` are null, default value is assigned to gradient.
-  ///   Same goes for `borderColor` and `borderGradient`.
-  /// * Default values are assigned to [borderWidth], [blur], [elevation], [frostedOpacity] and
-  ///   [shadowColor] properties if not specified.
-  /// * If the shape is [BoxShape.circle] then [height] is used as the diameter.
-  ///
-  /// See [Constants](https://pub.dev/documentation/glass_kit/latest/glass_kit/glass_kit-library.html#constants)
-  GlassContainer.frostedGlass({
-    Key key,
-    @required double height,
-    @required double width,
-    AlignmentGeometry alignment,
-    Matrix4 transform,
-    EdgeInsetsGeometry padding,
-    EdgeInsetsGeometry margin,
-    Gradient gradient,
-    Color color,
-    BorderRadius borderRadius,
-    double borderWidth,
-    Gradient borderGradient,
-    Color borderColor,
-    double blur,
-    double elevation,
-    Color shadowColor,
-    BoxShape shape = BoxShape.rectangle,
-    double frostedOpacity,
-    Widget child,
-  })  : height = height,
-        width = width,
-        isFrostedGlass = true,
-        frostedOpacity = frostedOpacity ?? kFrostedOpacity,
-        blur = blur ?? kBlur,
-        gradient = gradient ?? (color == null ? kGradientFill : null),
-        color = color,
-        borderGradient = borderGradient ??
-            (borderColor == null ? kBorderGradientFill : null),
-        borderColor = borderColor,
-        borderRadius = shape == BoxShape.rectangle
-            ? (borderRadius ?? kBorderRadius)
-            : null,
-        borderWidth = borderWidth ?? kBorderWidth,
-        elevation = elevation ?? kElevation,
-        margin = margin,
-        padding = padding,
-        shadowColor = shadowColor ?? kShadowColor,
-        shape = shape,
-        transform = transform,
-        alignment = alignment,
-        child = child,
-        assert(shape != BoxShape.circle || borderRadius == null,
-            'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
-        assert(kIsWeb != true || borderColor != null,
-            'borderColor cannot be null when runing on the Web\n'),
-        super(key: key);
-
-  /// Creates a widget that extends [GlassContainer] to implement a clear glass
-  /// effect.
-  /// Its a default implementation of the effect with editable decorations
-  ///
-  /// * If `color` and `gradient` are null, default value is assigned to gradient.
-  ///   Same goes for `borderColor` and `borderGradient`.
-  /// * Default values are assigned to [borderWidth], [blur], [elevation], and
-  ///   [shadowColor] properties if not specified.
-  ///
-  /// See [Constants](https://github.com/bharat-1809/glass_kit/blob/main/lib/src/constants.dart)
   GlassContainer.clearGlass({
     Key? key,
     required double height,
@@ -245,6 +130,8 @@ class GlassContainer extends StatelessWidget {
         child = child,
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        assert(kIsWeb != true || borderColor != null,
+            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// Creates a widget that extends [GlassContainer] to implement a frosted glass
@@ -255,8 +142,9 @@ class GlassContainer extends StatelessWidget {
   ///   Same goes for `borderColor` and `borderGradient`.
   /// * Default values are assigned to [borderWidth], [blur], [elevation], [frostedOpacity] and
   ///   [shadowColor] properties if not specified.
+  /// * If the shape is [BoxShape.circle] then [height] is used as the diameter.
   ///
-  /// See [Constants](https://github.com/bharat-1809/glass_kit/blob/main/lib/src/constants.dart)
+  /// See [Constants](https://pub.dev/documentation/glass_kit/latest/glass_kit/glass_kit-library.html#constants)
   GlassContainer.frostedGlass({
     Key? key,
     required double height,
@@ -303,10 +191,12 @@ class GlassContainer extends StatelessWidget {
         child = child,
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
+        assert(kIsWeb != true || borderColor != null,
+            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// The [child] contained by the GlassContainer.
-  final Widget child;
+  final Widget? child;
 
   /// The height of the GlassContainer
   final double height;
@@ -320,18 +210,18 @@ class GlassContainer extends StatelessWidget {
   /// potentially with a [borderRadius], or a circle).
   ///
   /// This is ignored if [gradient] is non-null.
-  final Color color;
+  final Color? color;
 
   /// A gradient to use when filling the box.
   ///
   /// If this is specified, [color] has no effect.
-  final Gradient gradient;
+  final Gradient? gradient;
 
   /// If non-null, the corners of this box are rounded by this [BorderRadius].
   ///
   /// Applies only to boxes with rectangular shapes; Must be null if [shape] is
   /// [BoxShape.circle].
-  final BorderRadius borderRadius;
+  final BorderRadius? borderRadius;
 
   /// The strokeWidth of the border
   ///
@@ -341,12 +231,12 @@ class GlassContainer extends StatelessWidget {
   /// A gradient to use when painting the border
   ///
   /// If this is specified [borderColor] has no effect
-  final Gradient borderGradient;
+  final Gradient? borderGradient;
 
   /// The color to fill in the border
   ///
   /// This is ignored if [borderGradient] is non-null
-  final Color borderColor;
+  final Color? borderColor;
 
   /// The value of sigmaX and sigmaY properties of Gaussian Blur.
   /// In simple words its the extent to which the backdrop of GlassContainer
@@ -385,7 +275,17 @@ class GlassContainer extends StatelessWidget {
   final Color shadowColor;
 
   /// The transformation matrix to apply before painting the GlassContainer.
-  final Matrix4 transform;
+  final Matrix4? transform;
+
+  /// The alignment of the origin, relative to the size of the GlassContainer,
+  /// if [transform] is specified.
+  ///
+  /// When [transform] is null, the value of this property is ignored.
+  ///
+  /// See also:
+  ///
+  ///  * [Transform.alignment], which is set by this property.
+  final AlignmentGeometry? transformAlignment;
 
   /// Align the [child] within the GlassContainer.
   ///
@@ -393,14 +293,14 @@ class GlassContainer extends StatelessWidget {
   /// child within itself according to the given value.
   ///
   /// Ignored if [child] is null.
-  final AlignmentGeometry alignment;
+  final AlignmentGeometry? alignment;
 
   /// Empty space to inscribe inside the GlassContainer. The [child], if any, is
   /// placed inside this padding.
-  final EdgeInsetsGeometry padding;
+  final EdgeInsetsGeometry? padding;
 
   /// Empty space to surround the GlassContainer's decoration and child.
-  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry? margin;
 
   /// Returns an empty [Container] or [_FrostedContainer] depending on the
   /// [isFrosted] flag and the [frostedOpacity] property.
@@ -429,11 +329,11 @@ class GlassContainer extends StatelessWidget {
 
   /// If its color-only-border, then return [Border] to be used
   /// in the decoration of the container.
-  Border get _border {
+  Border? get _border {
     if (_colorOnlyBorder || kIsWeb) {
       assert(borderColor != null);
       return Border.all(
-        color: borderColor,
+        color: borderColor!,
         width: borderWidth,
       );
     } else {
@@ -446,7 +346,7 @@ class GlassContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget current = child;
+    Widget? current = child;
 
     // Enclose the child within a container with padding, alignment and decoration
     current = Container(
@@ -473,7 +373,7 @@ class GlassContainer extends StatelessWidget {
         current = CustomPaint(
           painter: CircleBorderPainter(
             radius: height / 2,
-            gradient: borderGradient,
+            gradient: borderGradient!,
             strokeWidth: borderWidth,
           ),
           child: current,
@@ -482,9 +382,9 @@ class GlassContainer extends StatelessWidget {
         assert(borderRadius != null);
         current = CustomPaint(
           painter: RectBorderPainter(
-            radius: borderRadius.topLeft,
+            radius: borderRadius!.topLeft,
             strokeWidth: borderWidth,
-            gradient: borderGradient,
+            gradient: borderGradient!,
           ),
           child: current,
         );
@@ -521,6 +421,7 @@ class GlassContainer extends StatelessWidget {
         width: _isCircle ? height : width,
         child: current,
         transform: transform,
+        transformAlignment: transformAlignment,
         margin: margin,
       ),
     );
@@ -573,10 +474,10 @@ class GlassContainer extends StatelessWidget {
 class _FrostedWidget extends StatelessWidget {
   /// Creates a Forsted Layer Widget
   _FrostedWidget({
-    Key key,
-    @required this.frostedOpacity,
-    @required this.height,
-    @required this.width,
+    Key? key,
+    required this.frostedOpacity,
+    required this.height,
+    required this.width,
   }) : super(key: key);
 
   /// The opacity of the layer
