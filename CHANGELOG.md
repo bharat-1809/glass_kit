@@ -1,7 +1,7 @@
-## 1.1.0-nullsafety.1
+## 2.0.0-nullsafety.1
 
-* Sound Nullsafety
-* TransformAlignment Property
+* Migrate to sound null safety
+* Add TransformAlignment property to GlassContainer
 
 ## 1.0.2
 
@@ -10,4 +10,4 @@
 
 ## 1.0.1
 
-* Initial Release
+* Initial release
