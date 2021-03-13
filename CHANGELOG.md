@@ -1,3 +1,7 @@
+## 2.0.0
+
+* Migrate to stable null safety
+
 ## 2.0.0-nullsafety.1
 
 * Migrate to sound null safety
