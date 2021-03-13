@@ -1,7 +1,6 @@
 import 'package:example/ios_home/glass_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:google_fonts/google_fonts.dart';
 
 class IosHome extends StatelessWidget {
@@ -23,7 +22,7 @@ class IosHome extends StatelessWidget {
 
 class IosBody extends StatelessWidget {
   const IosBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -250,9 +249,9 @@ class WeatherWidget extends StatelessWidget {
 
 class Weather extends StatelessWidget {
   Weather({
-    @required this.time,
-    @required this.iconData,
-    @required this.temp,
+    required this.time,
+    required this.iconData,
+    required this.temp,
   });
 
   final String time;
