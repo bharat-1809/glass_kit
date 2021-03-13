@@ -193,6 +193,7 @@ void main() {
             child: const Text('Glass Kit'),
             margin: const EdgeInsets.all(10.0),
             padding: const EdgeInsets.all(8.0),
+            transformAlignment: Alignment.center,
             transform: Matrix4.identity()..rotateZ(0.10),
           ),
         ),
@@ -224,6 +225,18 @@ void main() {
         expect(find.byType(Container), findsNWidgets(4));
       else
         expect(find.byType(Container), findsNWidgets(3));
+    });
+
+    testWidgets('Layout and tranform properties are working fine',
+        (WidgetTester tester) async {
+      Widget widget = createGlassContainerWithLayoutProps();
+      await tester.pumpWidget(widget);
+
+      // one for padding and other for margin
+      expect(find.byType(Padding), findsNWidgets(2));
+      expect(find.byType(Transform), findsWidgets);
+      expect(find.byType(Align), findsOneWidget);
+      expect(find.byType(Text), findsOneWidget);
     });
 
     testWidgets('Layout and tranform properties are working fine',

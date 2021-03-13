@@ -22,7 +22,7 @@ class IosHome extends StatelessWidget {
 
 class IosBody extends StatelessWidget {
   const IosBody({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -248,7 +248,11 @@ class WeatherWidget extends StatelessWidget {
 }
 
 class Weather extends StatelessWidget {
-  Weather({this.time, this.iconData, this.temp});
+  Weather({
+    required this.time,
+    required this.iconData,
+    required this.temp,
+  });
 
   final String time;
   final IconData iconData;

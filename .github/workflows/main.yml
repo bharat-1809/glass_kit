@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        channel: [stable] # FIXME: Add the beta and dev channels when the test issue is resolved with layout test
+        channel: [stable, beta]
 
     steps:
       - uses: actions/checkout@v2

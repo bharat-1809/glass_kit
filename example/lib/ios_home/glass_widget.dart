@@ -3,14 +3,14 @@ import 'package:glass_kit/glass_kit.dart';
 
 class GlassWidget extends StatelessWidget {
   GlassWidget({
-    @required this.height,
-    @required this.width,
+    required this.height,
+    required this.width,
     this.child,
   });
 
   final double height;
   final double width;
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
