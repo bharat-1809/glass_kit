@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        channel: [beta]
+        channel: [stable, beta]
 
     steps:
       - uses: actions/checkout@v2
