@@ -1,11 +1,25 @@
 {
-  "files": ["README.md"],
+  "files": [
+    "README.md"
+  ],
   "imageSize": 100,
   "commit": false,
   "contributorsPerLine": 7,
-  "projectName": "Glass Kit",
+  "projectName": "glass_kit",
   "projectOwner": "bharat-1809",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "KABILAN235",
+      "name": "Kabilan VS",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51330370?v=4",
+      "profile": "https://github.com/KABILAN235",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    }
+  ]
 }
