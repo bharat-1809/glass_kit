@@ -416,13 +416,13 @@ class GlassContainer extends StatelessWidget {
     );
 
     current = Container(
-        height: height,
-        width: _isCircle ? height : width,
-        child: current,
-        transform: transform,
-        transformAlignment: transformAlignment,
-        margin: margin,
-      );
+      height: height,
+      width: _isCircle ? height : width,
+      child: current,
+      transform: transform,
+      transformAlignment: transformAlignment,
+      margin: margin,
+    );
 
     return current;
   }
