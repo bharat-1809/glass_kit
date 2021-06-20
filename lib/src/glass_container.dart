@@ -415,15 +415,13 @@ class GlassContainer extends StatelessWidget {
       child: current,
     );
 
-    current = Center(
-      child: Container(
-        height: height,
-        width: _isCircle ? height : width,
-        child: current,
-        transform: transform,
-        transformAlignment: transformAlignment,
-        margin: margin,
-      ),
+    current = Container(
+      height: height,
+      width: _isCircle ? height : width,
+      child: current,
+      transform: transform,
+      transformAlignment: transformAlignment,
+      margin: margin,
     );
 
     return current;
