@@ -48,7 +48,7 @@ You should add the following to the `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  glass_kit: ^2.0.0
+  glass_kit: ^2.0.1
 ```
 
 You should then run `flutter packages get` in your terminal so as to get the package.<br>
@@ -116,7 +116,7 @@ See [Contributing.md](https://github.com/bharat-1809/glass_kit/blob/main/CONTRIB
 # Contributors
 
 <!-- TODO: Uncomment this when a contributor is available to add -->
-<!-- Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)): -->
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
