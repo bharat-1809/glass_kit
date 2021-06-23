@@ -1,3 +1,7 @@
+## 2.0.1
+
+* Resolve unwanted centering of `GlassContainer`.
+
 ## 2.0.0
 
 * Migrate to stable null safety
