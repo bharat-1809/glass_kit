@@ -45,7 +45,7 @@ class GlassContainer extends StatelessWidget {
     this.gradient,
     BorderRadius? borderRadius,
     double? borderWidth,
-    this.borderColor,
+    this.borderColor = Colors.transparent,
     this.borderGradient,
     double? blur,
     bool? isFrostedGlass,
