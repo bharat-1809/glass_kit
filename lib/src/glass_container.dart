@@ -66,8 +66,6 @@ class GlassContainer extends StatelessWidget {
             : null,
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
-        assert(kIsWeb != true || borderColor != null,
-            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// Creates a widget that extends [GlassContainer] to implement a clear glass
