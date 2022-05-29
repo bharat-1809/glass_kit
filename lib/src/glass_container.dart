@@ -81,8 +81,8 @@ class GlassContainer extends StatelessWidget {
   /// See [Constants](https://pub.dev/documentation/glass_kit/latest/glass_kit/glass_kit-library.html#constants)
   GlassContainer.clearGlass({
     Key? key,
-    required double height,
-    required double width,
+    double height = double.maxFinite,
+    double width = double.maxFinite,
     AlignmentGeometry? alignment,
     Matrix4? transform,
     AlignmentGeometry? transformAlignment,
