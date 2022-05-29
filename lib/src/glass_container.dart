@@ -41,7 +41,7 @@ class GlassContainer extends StatelessWidget {
     this.transformAlignment,
     this.padding,
     this.margin,
-    this.color,
+    this.color = Colors.transparent,
     this.gradient,
     BorderRadius? borderRadius,
     double? borderWidth,
@@ -64,8 +64,6 @@ class GlassContainer extends StatelessWidget {
         borderRadius = shape == BoxShape.rectangle
             ? (borderRadius ?? kBorderRadius)
             : null,
-        assert(color != null || gradient != null,
-            'Both color and gradient cannot be null\n'),
         assert(borderColor != null || borderGradient != null,
             'Both borderColor and borderGradient cannot be null\n'),
         assert(shape != BoxShape.circle || borderRadius == null,
