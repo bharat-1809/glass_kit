@@ -41,11 +41,11 @@ class GlassContainer extends StatelessWidget {
     this.transformAlignment,
     this.padding,
     this.margin,
-    this.color,
+    this.color = Colors.transparent,
     this.gradient,
     BorderRadius? borderRadius,
     double? borderWidth,
-    this.borderColor,
+    this.borderColor = Colors.transparent,
     this.borderGradient,
     double? blur,
     bool? isFrostedGlass,
@@ -64,14 +64,8 @@ class GlassContainer extends StatelessWidget {
         borderRadius = shape == BoxShape.rectangle
             ? (borderRadius ?? kBorderRadius)
             : null,
-        assert(color != null || gradient != null,
-            'Both color and gradient cannot be null\n'),
-        assert(borderColor != null || borderGradient != null,
-            'Both borderColor and borderGradient cannot be null\n'),
         assert(shape != BoxShape.circle || borderRadius == null,
             'The [borderRadius] needs to be null if the shape is [BoxShape.circle]\n'),
-        assert(kIsWeb != true || borderColor != null,
-            'borderColor cannot be null when runing on the Web\n'),
         super(key: key);
 
   /// Creates a widget that extends [GlassContainer] to implement a clear glass
@@ -87,8 +81,8 @@ class GlassContainer extends StatelessWidget {
   /// See [Constants](https://pub.dev/documentation/glass_kit/latest/glass_kit/glass_kit-library.html#constants)
   GlassContainer.clearGlass({
     Key? key,
-    required double height,
-    required double width,
+    double height = double.maxFinite,
+    double width = double.maxFinite,
     AlignmentGeometry? alignment,
     Matrix4? transform,
     AlignmentGeometry? transformAlignment,
