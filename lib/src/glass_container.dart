@@ -403,7 +403,7 @@ class GlassContainer extends StatelessWidget {
       current = ClipOval(child: current);
     } else {
       assert(borderRadius != null);
-      current = ClipRRect(borderRadius: borderRadius, child: current);
+      current = ClipRRect(borderRadius: borderRadius!, child: current);
     }
 
     current = PhysicalModel(
