@@ -28,8 +28,8 @@ jobs:
         run: flutter pub get
 
       - name: Format
-        run: flutter format --dry-run --set-exit-if-changed .
-       
+        run: dart format -o none --set-exit-if-changed .
+
       - name: Analyze
         run: flutter analyze --no-pub
 
