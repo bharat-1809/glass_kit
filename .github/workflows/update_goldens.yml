@@ -1,0 +1,21 @@
+name: Update Golden Test Files
+
+on: workflow_dispatch
+
+jobs:
+  update_goldens:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - uses: subosito/flutter-action@v1
+          with:
+            channel: stable
+        
+        - name: Install Dependencies
+          run: flutter pub get
+        
+        - name: Update golden files
+          run: flutter test --update-goldens
+
+        - name: Verify the change
+          run: flutter test --no-pub
