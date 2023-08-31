@@ -339,7 +339,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/rectColoredBorderGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -351,7 +351,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/rectGradientBorderGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -363,7 +363,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/circelColoredBorderGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -375,7 +375,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/circleGradientBorderGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -387,7 +387,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/rRectGradientBorderGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -399,7 +399,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/modifiedRRectGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -411,7 +411,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/modifiedCircleGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -423,7 +423,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/rectClearGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -435,7 +435,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/circleClearGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -447,7 +447,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/rectFrostedGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -459,7 +459,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/circleFrostedGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
 
@@ -471,7 +471,7 @@ void main() {
       await expectLater(
         find.byType(GlassContainer),
         matchesGoldenFile('golden/layoutGCGoldenImage.png'),
-        skip: !Platform.isLinux,
+        skip: !Platform.isMacOS,
       );
     });
   });
