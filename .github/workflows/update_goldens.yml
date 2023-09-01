@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: "main"
+          path: main
 
       - uses: subosito/flutter-action@v1
         with:
@@ -31,6 +31,7 @@ jobs:
           set -e
           pwd
           ls -l
+          git status
           git config --local user.email "$BOT_EMAIL"
           git config --local user.name "$BOT_NAME"
 
