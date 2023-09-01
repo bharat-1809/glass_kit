@@ -10,8 +10,8 @@ A package containing widgets to implement glass morphism in flutter apps
 <div align="center">
 
 [![Platform](https://img.shields.io/badge/Platform-Flutter-02569B?logo=flutter)](https://flutter.dev)
-[![Pub Package](https://img.shields.io/endpoint?url=https://glass-kit-svg-badge-mlbuzdr853sr.runkit.sh)](https://pub.dev/packages/glass_kit)
-[![Build Status](https://img.shields.io/github/workflow/status/bharat-1809/glass_kit/CI?logo=github)](https://github.com/bharat-1809/glass_kit)
+[![Pub Package](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/bharat-1809/c15d01ed27d5660325918fcb7fa57a2c/raw)](https://pub.dev/packages/glass_kit)
+[![CI](https://github.com/bharat-1809/glass_kit/actions/workflows/main.yml/badge.svg)](https://github.com/bharat-1809/glass_kit/actions/workflows/main.yml)
 [![Codecov Coverage](https://codecov.io/gh/bharat-1809/glass_kit/branch/main/graph/badge.svg?token=N0DFJC64ZA)](https://codecov.io/gh/bharat-1809/glass_kit)
 [![License: MIT](https://img.shields.io/github/license/bharat-1809/glass_kit)](https://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal)](https://www.paypal.me/bsharma1809)
