@@ -3,6 +3,7 @@ env:
   BOT_NAME: "CRED Bot"
   BOT_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
   BRANCH_NAME: "bot/update_goldens"
+  GH_TOKEN: ${{ github.token }}
 
 on: workflow_dispatch
 
