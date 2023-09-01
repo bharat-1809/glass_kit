@@ -1,6 +1,6 @@
 # Additions to the generated gitignore...
 # Skip the pubspec.lock file because this is a library not an application
-**/pubspec.lock
+/pubspec.lock
 # The code coverage folder is like a build result
 coverage/
 
