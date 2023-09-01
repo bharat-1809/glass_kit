@@ -30,14 +30,14 @@ jobs:
           ls -l
           git config --local user.email "$BOT_EMAIL"
           git config --local user.name "$BOT_NAME"
+
           echo ">>>>>>>>>>>>>>>>>>>>"
           echo $BRANCH_NAME
           echo ">>>>>>>>>>>>>>>>>>>>"
+
           git checkout -b $BRANCH_NAME
-          git status
           git add test/golden
           git status
           git commit -m "chore: update golden test files"
-          git status
           git push --set-upstream origin "$BRANCH_NAME" -f
-          gh pr create -B $BRANCH_NAME -H main --title 'chore: update golden test files'
+          gh pr create -B $BRANCH_NAME -H main --title 'chore: update golden test files' --body '- Update golden files as per Linux OS'
