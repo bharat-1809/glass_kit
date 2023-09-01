@@ -3,6 +3,7 @@ env:
   BOT_NAME: "CRED Bot"
   BOT_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
   BRANCH_NAME: "bot/update_goldens"
+  GH_TOKEN: ${{ github.token }}
 
 on: workflow_dispatch
 
@@ -11,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: "main"
+
       - uses: subosito/flutter-action@v1
         with:
           channel: stable
@@ -29,14 +33,16 @@ jobs:
           ls -l
           git config --local user.email "$BOT_EMAIL"
           git config --local user.name "$BOT_NAME"
+          git status
+          git pull origin main
+
           echo ">>>>>>>>>>>>>>>>>>>>"
           echo $BRANCH_NAME
           echo ">>>>>>>>>>>>>>>>>>>>"
+
           git checkout -b $BRANCH_NAME
-          git status
           git add test/golden
           git status
           git commit -m "chore: update golden test files"
-          git status
-          git push --set-upstream origin "$BRANCH_NAME"
-          gh pr create -B $BRANCH_NAME -H main --title 'chore: update golden test files'
+          git push --set-upstream origin "$BRANCH_NAME" -f
+          gh pr create -H $BRANCH_NAME -B main --title 'chore: update golden test files' --body '- Update golden files as per Linux OS'
