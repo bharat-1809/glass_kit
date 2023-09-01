@@ -20,6 +20,18 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "maeddin",
+      "name": "Martin Klüpfel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/43761463?v=4",
+      "profile": "https://github.com/maeddin",
+      "contributions": [
+        "maintenance",
+        "code"
+      ]
     }
-  ]
+  ],
+  "commitType": "docs",
+  "commitConvention": "angular"
 }
