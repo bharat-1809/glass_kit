@@ -1,6 +1,6 @@
 name: glass_kit
 description: A package containing widgets to implement glass morphism in flutter apps.
-version: 2.0.1
+version: 3.0.0
 homepage: https://github.com/bharat-1809/glass_kit
 
 environment:
