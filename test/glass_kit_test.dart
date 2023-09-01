@@ -220,10 +220,11 @@ void main() {
 
       expect(find.byType(Opacity), findsOneWidget);
       expect(find.byType(Image), findsOneWidget);
-      if (kIsWeb)
+      if (kIsWeb) {
         expect(find.byType(Container), findsNWidgets(4));
-      else
+      } else {
         expect(find.byType(Container), findsNWidgets(3));
+      }
     });
 
     testWidgets('Layout and tranform properties are working fine',

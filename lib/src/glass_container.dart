@@ -403,7 +403,10 @@ class GlassContainer extends StatelessWidget {
       current = ClipOval(child: current);
     } else {
       assert(borderRadius != null);
-      current = ClipRRect(borderRadius: borderRadius!, child: current);
+      current = ClipRRect(
+        borderRadius: borderRadius ?? BorderRadius.zero,
+        child: current,
+      );
     }
 
     current = PhysicalModel(
@@ -455,16 +458,18 @@ class GlassContainer extends StatelessWidget {
     properties.add(
         ColorProperty('shadowColor', shadowColor, defaultValue: kShadowColor));
 
-    if (gradient != null)
+    if (gradient != null) {
       properties.add(DiagnosticsProperty<Gradient>('bg', gradient));
-    else
+    } else {
       properties.add(ColorProperty('bg', color));
+    }
 
-    if (borderGradient != null)
+    if (borderGradient != null) {
       properties
           .add(DiagnosticsProperty<Gradient>('borderGradient', borderGradient));
-    else
+    } else {
       properties.add(ColorProperty('borderColor', borderColor));
+    }
   }
 }
 
