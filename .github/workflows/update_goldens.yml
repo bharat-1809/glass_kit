@@ -1,4 +1,8 @@
 name: Update Golden Test Files
+env:
+  BOT_NAME: "CRED Bot"
+  BOT_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
+  BRANCH_NAME: "bot/update_goldens"
 
 on: workflow_dispatch
 
@@ -6,16 +10,36 @@ jobs:
   update_goldens:
     runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - uses: subosito/flutter-action@v1
-          with:
-            channel: stable
-        
-        - name: Install Dependencies
-          run: flutter pub get
-        
-        - name: Update golden files
-          run: flutter test --update-goldens
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: stable
 
-        - name: Verify the change
-          run: flutter test --no-pub
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Update golden files
+        run: flutter test --update-goldens
+
+      - name: Create PR
+        run: |
+          set -x
+          set -e
+          source /home/ubuntu/.bashrc
+          source /etc/profile
+          export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
+          pwd
+          ls -l
+          git config --local user.email "$BOT_EMAIL"
+          git config --local user.name "$BOT_NAME"
+          echo ">>>>>>>>>>>>>>>>>>>>"
+          echo $BRANCH_NAME
+          echo ">>>>>>>>>>>>>>>>>>>>"
+          git checkout -b $BRANCH_NAME
+          git status
+          git add test/golden
+          git status
+          git commit -m "chore: update golden test files"
+          git status
+          git push --set-upstream origin "$BRANCH_NAME"
+          gh pr create -B $BRANCH_NAME -H main --title 'chore: update golden test files'
