@@ -39,5 +39,5 @@ jobs:
           git status
           git commit -m "chore: update golden test files"
           git status
-          git push --set-upstream origin "$BRANCH_NAME"
+          git push --set-upstream origin "$BRANCH_NAME" -f
           gh pr create -B $BRANCH_NAME -H main --title 'chore: update golden test files'
