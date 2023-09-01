@@ -25,9 +25,6 @@ jobs:
         run: |
           set -x
           set -e
-          source /home/ubuntu/.bashrc
-          source /etc/profile
-          export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin
           pwd
           ls -l
           git config --local user.email "$BOT_EMAIL"
