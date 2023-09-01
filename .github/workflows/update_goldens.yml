@@ -45,4 +45,4 @@ jobs:
           git status
           git commit -m "chore: update golden test files"
           git push --set-upstream origin "$BRANCH_NAME" -f
-          gh pr create -B $BRANCH_NAME -H main --title 'chore: update golden test files' --body '- Update golden files as per Linux OS'
+          gh pr create -H $BRANCH_NAME -B main --title 'chore: update golden test files' --body '- Update golden files as per Linux OS'
