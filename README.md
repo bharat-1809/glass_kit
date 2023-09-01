@@ -48,7 +48,7 @@ You should add the following to the `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  glass_kit: ^2.0.1
+  glass_kit: ^3.0.0
 ```
 
 You should then run `flutter packages get` in your terminal so as to get the package.<br>
