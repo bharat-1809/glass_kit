@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: "main"
+
       - uses: subosito/flutter-action@v1
         with:
           channel: stable
