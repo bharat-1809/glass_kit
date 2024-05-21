@@ -1,5 +1,3 @@
-/// The default values used by the [GlassContainer]
-
 import 'package:flutter/widgets.dart'
     show Color, BorderRadius, BlendMode, LinearGradient, Alignment;
 
