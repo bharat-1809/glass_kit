@@ -19,36 +19,38 @@ class BankCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: GlassContainer.frostedGlass(
+      child: SizedBox(
         height: 200,
         width: 350,
-        borderRadius: BorderRadius.circular(25.0),
-        borderWidth: 1.5,
-        blur: 15.0,
-        frostedOpacity: 0.06,
-        gradient: LinearGradient(
-          colors: [
-            Colors.white.withOpacity(0.40),
-            Colors.white.withOpacity(0.06),
-          ],
-          begin: Alignment(-0.10, -1.0),
-          end: Alignment(0.00, 1.0),
-        ),
-        borderGradient: LinearGradient(
+        child: GlassContainer.frostedGlass(
+          borderRadius: BorderRadius.circular(25.0),
+          borderWidth: 1.5,
+          blur: 15.0,
+          frostedOpacity: 0.06,
+          gradient: LinearGradient(
             colors: [
-              Colors.white.withOpacity(0.70),
-              Colors.white.withOpacity(0.0),
-              Colors.grey.withOpacity(0.0),
-              Colors.grey.withOpacity(0.60),
+              Colors.white.withOpacity(0.40),
+              Colors.white.withOpacity(0.06),
             ],
-            begin: Alignment(0.35, -1.0),
-            end: Alignment.bottomRight,
-            stops: [0.0, 0.30, 0.31, 1.0]
-            // stops: []
-            ),
-        padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
-        elevation: 5.0,
-        child: CardChild(),
+            begin: Alignment(-0.10, -1.0),
+            end: Alignment(0.00, 1.0),
+          ),
+          borderGradient: LinearGradient(
+              colors: [
+                Colors.white.withOpacity(0.70),
+                Colors.white.withOpacity(0.0),
+                Colors.grey.withOpacity(0.0),
+                Colors.grey.withOpacity(0.60),
+              ],
+              begin: Alignment(0.35, -1.0),
+              end: Alignment.bottomRight,
+              stops: [0.0, 0.30, 0.31, 1.0]
+              // stops: []
+              ),
+          padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
+          elevation: 5.0,
+          child: CardChild(),
+        ),
       ),
     );
   }

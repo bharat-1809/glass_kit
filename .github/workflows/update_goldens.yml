@@ -23,7 +23,7 @@ jobs:
         run: flutter pub get
 
       - name: Update golden files
-        run: flutter test --update-goldens
+        run: flutter test --update-goldens --no-pub --coverage
 
       - name: Create PR
         run: |

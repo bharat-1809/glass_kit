@@ -33,7 +33,8 @@ class IosBody extends StatelessWidget {
         children: [
           SizedBox(height: 40),
           GridView.count(
-            mainAxisSpacing: 10.0,
+            mainAxisSpacing: 20.0,
+            crossAxisSpacing: 20.0,
             crossAxisCount: 2,
             shrinkWrap: true,
             children: [
@@ -44,7 +45,8 @@ class IosBody extends StatelessWidget {
             ],
           ),
           SizedBox(height: 20.0),
-          WeatherWidget()
+          Flexible(child: WeatherWidget()),
+          const Spacer(),
         ],
       ),
     );
@@ -61,8 +63,6 @@ class TimeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlassWidget(
-      height: MediaQuery.of(context).size.width * 0.40,
-      width: MediaQuery.of(context).size.width * 0.40,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,8 +86,6 @@ class BatteryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlassWidget(
-      height: MediaQuery.of(context).size.width * 0.40,
-      width: MediaQuery.of(context).size.width * 0.40,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,8 +112,6 @@ class CalendarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlassWidget(
-      height: MediaQuery.of(context).size.width * 0.40,
-      width: MediaQuery.of(context).size.width * 0.40,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,8 +147,6 @@ class GoogleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlassWidget(
-      height: MediaQuery.of(context).size.width * 0.40,
-      width: MediaQuery.of(context).size.width * 0.40,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,8 +200,6 @@ class WeatherWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GlassWidget(
-      height: MediaQuery.of(context).size.width * 0.45,
-      width: MediaQuery.of(context).size.width * 0.85,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
