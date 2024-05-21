@@ -43,13 +43,11 @@ class RectBorderPainter extends CustomPainter {
 /// Used by GlassContainer to paint the gradient borders
 class CircleBorderPainter extends CustomPainter {
   CircleBorderPainter({
-    required this.radius,
     required this.gradient,
     required this.strokeWidth,
   }) : _paint = Paint();
 
   final Paint _paint;
-  final double radius;
   final double strokeWidth;
   final Gradient gradient;
 
@@ -59,7 +57,8 @@ class CircleBorderPainter extends CustomPainter {
     Rect rect = Offset.zero & size;
 
     // create an outer circle enclosing box
-    Rect outerCircle = Rect.fromCircle(center: rect.center, radius: radius);
+    Rect outerCircle =
+        Rect.fromCircle(center: rect.center, radius: size.shortestSide / 2);
 
     // create an inner circle enclosing box
     Rect innerCircle = outerCircle.deflate(strokeWidth);

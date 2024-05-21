@@ -208,9 +208,8 @@ void main() {
 
       expect(find.byType(BackdropFilter), findsOneWidget);
       expect(find.byType(Image), findsNothing);
-      expect(find.byType(PhysicalModel), findsOneWidget);
-      // 4th Container because there is no frosted layer
-      expect(find.byType(Container), findsNWidgets(4));
+      expect(find.byType(SizedBox), findsNWidgets(2));
+      expect(find.byType(Container), findsNWidgets(3));
     });
 
     testWidgets('Frost layer is present when [isFrosted] is true',
@@ -220,10 +219,11 @@ void main() {
 
       expect(find.byType(Opacity), findsOneWidget);
       expect(find.byType(Image), findsOneWidget);
+      expect(find.byType(Container), findsNWidgets(3));
       if (kIsWeb) {
-        expect(find.byType(Container), findsNWidgets(4));
+        expect(find.byType(SizedBox), findsNWidgets(2));
       } else {
-        expect(find.byType(Container), findsNWidgets(3));
+        expect(find.byType(SizedBox), findsOneWidget);
       }
     });
 
@@ -232,20 +232,7 @@ void main() {
       Widget widget = createGlassContainerWithLayoutProps();
       await tester.pumpWidget(widget);
 
-      // one for padding and other for margin
-      expect(find.byType(Padding), findsNWidgets(2));
-      expect(find.byType(Transform), findsWidgets);
-      expect(find.byType(Align), findsOneWidget);
-      expect(find.byType(Text), findsOneWidget);
-    });
-
-    testWidgets('Layout and tranform properties are working fine',
-        (WidgetTester tester) async {
-      Widget widget = createGlassContainerWithLayoutProps();
-      await tester.pumpWidget(widget);
-
-      // one for padding and other for margin
-      expect(find.byType(Padding), findsNWidgets(2));
+      expect(find.byType(Padding), findsNWidgets(4));
       expect(find.byType(Transform), findsWidgets);
       expect(find.byType(Align), findsOneWidget);
       expect(find.byType(Text), findsOneWidget);
@@ -259,7 +246,7 @@ void main() {
       await tester.pumpWidget(widget);
       expect(find.byType(Opacity), findsNothing);
       expect(find.byType(Image), findsNothing);
-      expect(find.byType(Container), findsNWidgets(4));
+      expect(find.byType(Container), findsNWidgets(3));
     });
 
     testWidgets('BorderPainters are not used when borderFill is [color]',
