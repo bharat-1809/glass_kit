@@ -1,3 +1,9 @@
+## 4.0.0
+
+- Make `height` and `width` properties non required in `GlassContainer`
+- `GlassContainer` now takes 'boxShadow' as a parameter to customize the shadow instead of `shadowColor` and `elevation`
+- Add example to demonstrate the usage of `GlassContainer` in `ListView`
+
 ## 3.0.0
 
 - Update minimum supported SDK version to Flutter 3.0/Dart 3.0

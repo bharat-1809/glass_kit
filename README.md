@@ -48,7 +48,7 @@ You should add the following to the `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  glass_kit: ^3.0.0
+  glass_kit: ^4.0.0
 ```
 
 You should then run `flutter packages get` in your terminal so as to get the package.<br>
@@ -61,16 +61,16 @@ import 'package:glass_kit/glass_kit.dart';
 
 # Usage
 
-To create a basic clear glass container you can use the `clearGlass` constructor. Just provide the `height` and `width` and you are good to go. The `clearGlass` and `frostedGlass` constructors assign default values to the properties if not provided.
+To create a basic clear glass container you can use the `clearGlass` constructor. If needed, just provide the `height` and `width` and you are good to go. The `clearGlass` and `frostedGlass` constructors assign default values to the properties if not provided.
 
 ```dart
-GlassContainer.clearGlass(height: 200, width: 300, child: Child());
+GlassContainer.clearGlass(child: Child());
 ```
 
 To create a frosted glass container use the `frostedGlass` constructor.
 
 ```dart
-GlassContainer.frostedGlass(height: 200, width: 300, child: Child());
+GlassContainer.frostedGlass(width: 300, child: Child());
 ```
 
 Depending on your requirements you can tweak with the properties and create awesome glass widgets. You can also use the `GlassContainer` constructor to create fully customizable glass widgets.<br><br>
