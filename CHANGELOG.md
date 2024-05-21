@@ -1,3 +1,8 @@
+## 4.0.1
+
+- Upgrade lint pkg to v4.0.0
+- Fix lint issues
+
 ## 4.0.0
 
 - Make `height` and `width` properties non required in `GlassContainer`
