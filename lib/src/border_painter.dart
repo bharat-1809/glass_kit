@@ -25,7 +25,8 @@ class RectBorderPainter extends CustomPainter {
     RRect innerRRect = outerRRect.deflate(strokeWidth);
 
     // apply gradient shader
-    _paint.shader = gradient.createShader(outerRect, textDirection: TextDirection.ltr);
+    _paint.shader =
+        gradient.createShader(outerRect, textDirection: TextDirection.ltr);
 
     // create difference between outer and inner paths and draw it
     Path outer = Path()..addRRect(outerRRect);
@@ -64,7 +65,8 @@ class CircleBorderPainter extends CustomPainter {
     Rect innerCircle = outerCircle.deflate(strokeWidth);
 
     // apply gradient shader
-    _paint.shader = gradient.createShader(outerCircle, textDirection: TextDirection.ltr);
+    _paint.shader =
+        gradient.createShader(outerCircle, textDirection: TextDirection.ltr);
 
     // create difference between outer and inner paths and draw it
     Path outer = Path()..addOval(outerCircle);
