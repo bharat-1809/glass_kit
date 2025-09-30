@@ -1,5 +1,7 @@
-## 4.0.1+1
+## 4.0.2
 
+- Fix for inconsistent `borderRadius` handling
+- Update deps to support Flutter 3.35.0
 - Fix gradient border impeller bug
 
 ## 4.0.1
