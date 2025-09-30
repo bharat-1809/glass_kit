@@ -1,3 +1,7 @@
+## 4.0.1+1
+
+- Fix gradient border impeller bug
+
 ## 4.0.1
 
 - Upgrade lint pkg to v4.0.0
