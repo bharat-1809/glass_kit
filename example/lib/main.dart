@@ -33,18 +33,18 @@ class HomePage extends StatelessWidget {
           width: 350,
           gradient: LinearGradient(
             colors: [
-              Colors.white.withOpacity(0.40),
-              Colors.white.withOpacity(0.10),
+              Colors.white.withValues(alpha: 0.40),
+              Colors.white.withValues(alpha: 0.10),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           borderGradient: LinearGradient(
             colors: [
-              Colors.white.withOpacity(0.60),
-              Colors.white.withOpacity(0.10),
-              Colors.purpleAccent.withOpacity(0.05),
-              Colors.purpleAccent.withOpacity(0.60),
+              Colors.white.withValues(alpha: 0.60),
+              Colors.white.withValues(alpha: 0.10),
+              Colors.purpleAccent.withValues(alpha: 0.05),
+              Colors.purpleAccent.withValues(alpha: 0.60),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
           borderWidth: 1.0,
           elevation: 3.0,
           isFrostedGlass: true,
-          shadowColor: Colors.purple.withOpacity(0.20),
+          shadowColor: Colors.purple.withValues(alpha: 0.20),
         ),
       ),
     );
