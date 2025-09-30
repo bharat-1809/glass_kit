@@ -78,7 +78,7 @@ void main() {
     return GlassContainer(
       height: 200,
       width: 350,
-      color: Colors.white.withOpacity(0.60),
+      color: Colors.white.withValues(alpha: 0.60),
       borderRadius: BorderRadius.circular(24.0),
       borderWidth: 10.0,
       borderGradient: LinearGradient(
@@ -95,18 +95,18 @@ void main() {
       width: 350,
       gradient: LinearGradient(
         colors: [
-          Colors.lightGreen.withOpacity(0.40),
-          Colors.lightGreen.withOpacity(0.10),
+          Colors.lightGreen.withValues(alpha: 0.40),
+          Colors.lightGreen.withValues(alpha: 0.10),
         ],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
       borderGradient: LinearGradient(
         colors: [
-          Colors.lightBlue.withOpacity(0.60),
-          Colors.lightBlue.withOpacity(0.10),
-          Colors.lightBlueAccent.withOpacity(0.05),
-          Colors.lightBlueAccent.withOpacity(0.60),
+          Colors.lightBlue.withValues(alpha: 0.60),
+          Colors.lightBlue.withValues(alpha: 0.10),
+          Colors.lightBlueAccent.withValues(alpha: 0.05),
+          Colors.lightBlueAccent.withValues(alpha: 0.60),
         ],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
@@ -117,7 +117,7 @@ void main() {
       borderWidth: 1.5,
       elevation: 3.0,
       isFrostedGlass: true,
-      shadowColor: Colors.lightGreenAccent.withOpacity(0.20),
+      shadowColor: Colors.lightGreenAccent.withValues(alpha: 0.20),
     );
   }
 
@@ -127,18 +127,18 @@ void main() {
       width: 400,
       gradient: LinearGradient(
         colors: [
-          Colors.lightGreen.withOpacity(0.40),
-          Colors.lightGreen.withOpacity(0.10),
+          Colors.lightGreen.withValues(alpha: 0.40),
+          Colors.lightGreen.withValues(alpha: 0.10),
         ],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
       borderGradient: LinearGradient(
         colors: [
-          Colors.lightBlue.withOpacity(0.60),
-          Colors.lightBlue.withOpacity(0.10),
-          Colors.lightBlueAccent.withOpacity(0.05),
-          Colors.lightBlueAccent.withOpacity(0.60),
+          Colors.lightBlue.withValues(alpha: 0.60),
+          Colors.lightBlue.withValues(alpha: 0.10),
+          Colors.lightBlueAccent.withValues(alpha: 0.05),
+          Colors.lightBlueAccent.withValues(alpha: 0.60),
         ],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
@@ -149,7 +149,7 @@ void main() {
       borderWidth: 1.5,
       elevation: 3.0,
       isFrostedGlass: true,
-      shadowColor: Colors.lightGreenAccent.withOpacity(0.20),
+      shadowColor: Colors.lightGreenAccent.withValues(alpha: 0.20),
     );
   }
 

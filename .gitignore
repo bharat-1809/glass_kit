@@ -86,3 +86,6 @@ lib/generated_plugin_registrant.dart
 
 # Test
 test/failures
+
+# FVM Version Cache
+.fvm/

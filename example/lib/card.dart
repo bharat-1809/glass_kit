@@ -8,7 +8,7 @@ class BankCardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.black.withOpacity(0.90),
+        color: Colors.black.withValues(alpha: 0.90),
         child: BankCard(),
       ),
     );
@@ -29,18 +29,18 @@ class BankCard extends StatelessWidget {
           frostedOpacity: 0.06,
           gradient: LinearGradient(
             colors: [
-              Colors.white.withOpacity(0.40),
-              Colors.white.withOpacity(0.06),
+              Colors.white.withValues(alpha: 0.40),
+              Colors.white.withValues(alpha: 0.06),
             ],
             begin: Alignment(-0.10, -1.0),
             end: Alignment(0.00, 1.0),
           ),
           borderGradient: LinearGradient(
               colors: [
-                Colors.white.withOpacity(0.70),
-                Colors.white.withOpacity(0.0),
-                Colors.grey.withOpacity(0.0),
-                Colors.grey.withOpacity(0.60),
+                Colors.white.withValues(alpha: 0.70),
+                Colors.white.withValues(alpha: 0.0),
+                Colors.grey.withValues(alpha: 0.0),
+                Colors.grey.withValues(alpha: 0.60),
               ],
               begin: Alignment(0.35, -1.0),
               end: Alignment.bottomRight,

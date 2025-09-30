@@ -156,8 +156,8 @@ class GoogleWidget extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.35),
-                  Colors.white.withOpacity(0.05),
+                  Colors.white.withValues(alpha: 0.35),
+                  Colors.white.withValues(alpha: 0.05),
                 ],
               ),
               borderRadius: BorderRadius.circular(40.0),
