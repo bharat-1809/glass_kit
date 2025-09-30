@@ -393,7 +393,7 @@ class GlassContainer extends StatelessWidget {
           painter: RectBorderPainter(
             strokeWidth: borderWidth,
             gradient: borderGradient!,
-            radius: borderRadius!.topLeft,
+            borderRadius: borderRadius!,
           ),
         );
       }

@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 /// Used by GlassContainer to paint the gradient borders
 class RectBorderPainter extends CustomPainter {
   RectBorderPainter({
-    required this.radius,
+    required this.borderRadius,
     required this.strokeWidth,
     required this.gradient,
   }) : _paint = Paint();
 
   final Paint _paint;
-  final Radius radius;
+  final BorderRadius borderRadius;
   final double strokeWidth;
   final Gradient gradient;
 
@@ -19,7 +19,7 @@ class RectBorderPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     // create outer rectangle equal to size
     Rect outerRect = Offset.zero & size;
-    RRect outerRRect = RRect.fromRectAndRadius(outerRect, radius);
+    RRect outerRRect = borderRadius.toRRect(outerRect);
 
     // create inner rectangle smaller by strokeWidth
     RRect innerRRect = outerRRect.deflate(strokeWidth);
