@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 
 class GlassWidget extends StatelessWidget {
-  GlassWidget({this.child});
+  GlassWidget({required this.child});
 
-  final Widget? child;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {

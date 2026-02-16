@@ -48,7 +48,6 @@ class BankCard extends StatelessWidget {
               // stops: []
               ),
           padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 25.0),
-          elevation: 5.0,
           child: CardChild(),
         ),
       ),

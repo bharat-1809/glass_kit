@@ -50,3 +50,14 @@ const LinearGradient kBorderGradientFill = LinearGradient(
   end: Alignment(1.0, 1.0),
   stops: [0.0, 0.39, 0.40, 1.0],
 );
+
+/// The asset path for the noise fragment shader used in [NoiseShaderWidget].
+///
+/// This shader generates GPU-accelerated noise for frosted glass effects.
+const String kNoiseShaderPath = 'packages/glass_kit/assets/shaders/noise.frag';
+
+/// Default scale for the noise shader pattern.
+///
+/// Higher values create larger, more visible noise blocks.
+/// Lower values create finer, more subtle noise patterns.
+const double kNoiseShaderScale = 1.0;

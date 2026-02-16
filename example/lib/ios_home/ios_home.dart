@@ -45,7 +45,7 @@ class IosBody extends StatelessWidget {
             ],
           ),
           SizedBox(height: 20.0),
-          Flexible(child: WeatherWidget()),
+          WeatherWidget(),
           const Spacer(),
         ],
       ),
@@ -228,6 +228,7 @@ class WeatherWidget extends StatelessWidget {
               )
             ],
           ),
+          SizedBox(height: 10.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -258,21 +259,24 @@ class Weather extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(time, style: textStyle.copyWith(color: Color(0xff252550))),
-        SizedBox(height: 10.0),
-        FaIcon(
-          iconData,
-          color: Colors.white,
-          size: 15.0,
-        ),
-        SizedBox(height: 10.0),
-        Text(temp, style: textStyle),
-      ],
+    return SizedBox(
+      height: 80,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(time, style: textStyle.copyWith(color: Color(0xff252550))),
+          SizedBox(height: 10.0),
+          FaIcon(
+            iconData,
+            color: Colors.white,
+            size: 15.0,
+          ),
+          SizedBox(height: 10.0),
+          Text(temp, style: textStyle),
+        ],
+      ),
     );
   }
 }
